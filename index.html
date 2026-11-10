@@ -686,14 +686,6 @@
           <div
             class="absolute top-full right-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-slate-200/90 py-2 hidden group-hover:block hover:block z-50 transition-all animate-in fade-in slide-in-from-top-1 duration-150">
             <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">Design Defense</div>
-            <a href="#walkthrough"
-              class="flex items-start gap-2.5 px-3 py-2 hover:bg-blue-50/80 text-slate-700 hover:text-blue-700 transition-colors">
-              <span class="font-mono text-blue-600 text-[11px] font-semibold mt-0.5">15</span>
-              <div>
-                <div class="font-semibold text-xs">6-Min Prototype Walkthrough</div>
-                <div class="text-[11px] text-slate-500 font-normal">Scripted demo sequence</div>
-              </div>
-            </a>
             <a href="#ai"
               class="flex items-start gap-2.5 px-3 py-2 hover:bg-blue-50/80 text-slate-700 hover:text-blue-700 transition-colors">
               <span class="font-mono text-blue-600 text-[11px] font-semibold mt-0.5">16</span>
@@ -808,8 +800,6 @@
               class="block py-1 text-slate-600 hover:text-blue-600">08. Design System</a>
           </div>
           <div class="space-y-1 col-span-2 pt-2 border-t border-slate-100 flex items-center justify-between">
-            <a href="#walkthrough" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-blue-600">15. 6-Min
-              Demo</a>
             <a href="#ai" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-blue-600">16. AI Guardrails</a>
             <a href="#decisions" onclick="toggleMobileMenu()" class="text-slate-600 hover:text-blue-600">17.
               Trade-offs</a>
@@ -869,58 +859,38 @@
         <span class="text-brand-600 font-semibold">November 2026</span>
       </div>
 
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 lg:gap-8">
-        <div class="space-y-4 max-w-3xl">
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight text-[#0D1B2E] leading-[1.12] flex flex-wrap items-center gap-3">
-            <span>Hisaab</span>
-            <img src="assets/images/challanos-logo.png" alt="Hisaab Logo"
-              class="w-10 h-10 sm:w-14 sm:h-14 object-contain inline-block rounded-xl shadow-xs">
-            <span class="text-brand-600 font-heading font-black">“Every challan, accounted for”</span>
-          </h1>
+      <div class="space-y-4 max-w-4xl">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight text-[#090D1A] leading-[1.12] flex flex-wrap items-center gap-3">
+          <span>Hisaab</span>
+          <img src="assets/images/challanos-logo.png" alt="Hisaab Logo"
+            class="w-10 h-10 sm:w-14 sm:h-14 object-contain inline-block rounded-lg shadow-2xs">
+          <span class="text-[#173796] font-heading font-black">“Every challan, accounted for”</span>
+        </h1>
 
-          <!-- Simple, relatable human story -->
-          <p class="text-lg sm:text-xl text-[#344563] font-normal leading-relaxed max-w-2xl">
-            When a commercial truck gets a traffic fine on an Indian highway, the police send the ticket to the truck’s number plate — not the driver. 
-            For fleet companies with hundreds of rotating drivers, this causes chaos. 
-            <strong>Hisaab</strong> automatically links every fine to the exact driver on duty, settles it before late fees double, and cleanly recovers the money from the driver’s paycheck or client invoice.
-          </p>
+        <!-- Simple, relatable human story -->
+        <p class="text-lg sm:text-xl text-[#2D3748] font-normal leading-relaxed max-w-3xl">
+          When a commercial truck gets a traffic fine on an Indian highway, the police send the ticket to the truck’s number plate — not the driver. 
+          For fleet companies with hundreds of rotating drivers, this causes chaos. 
+          <strong class="text-[#090D1A]">Hisaab</strong> automatically links every fine to the exact driver on duty, settles it before late fees double, and cleanly recovers the money from the driver’s paycheck or client invoice.
+        </p>
 
-          <!-- 3 Plain-English Core Value Tags with High Visual Contrast -->
-          <div class="flex flex-wrap items-center gap-2 pt-1">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#173796]"></span> Instant Driver Attribution
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#065F46]"></span> Zero Compounding Late Fees
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#92400E]"></span> Dual-Ledger Money Recovery
-            </span>
-          </div>
-        </div>
-
-        <!-- Hisaab Brand Showcase Card with Enhanced Contrast -->
-        <div class="shrink-0 flex items-center justify-start lg:justify-center">
-          <div class="p-5 rounded-xl bg-white border border-[#D2DCE8] shadow-sm flex items-center gap-4">
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-[#F8FAFD] border border-[#D2DCE8] p-2.5 flex items-center justify-center">
-              <img src="assets/images/challanos-logo.png" alt="Hisaab Logo" class="w-full h-full object-contain">
-            </div>
-            <div class="space-y-0.5">
-              <span class="text-xl sm:text-2xl font-black text-[#090D1A] block tracking-tight font-heading">Hisaab</span>
-              <span class="text-xs text-[#5D6D82] font-medium block">Fleet Compliance OS</span>
-              <span class="text-[11px] font-mono text-[#173796] font-bold block">v2.4 Enterprise System</span>
-              <div class="flex items-center gap-1.5 pt-1">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span class="text-[10px] font-mono text-emerald-700 font-bold">842 Assets Synced</span>
-              </div>
-            </div>
-          </div>
+        <!-- 3 Plain-English Core Value Tags with High Visual Contrast -->
+        <div class="flex flex-wrap items-center gap-2 pt-1">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#173796]"></span> Instant Driver Attribution
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#065F46]"></span> Zero Compounding Late Fees
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#92400E]"></span> Dual-Ledger Money Recovery
+          </span>
         </div>
       </div>
 
       <!-- Executive Specification Strip (Clean Tabular Hierarchy, No Bento Clutter) -->
-      <div class="rounded-xl bg-white border border-[#CDD7E5] shadow-xs text-xs overflow-hidden">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-[#CDD7E5]">
+      <div class="rounded-xl bg-white border border-[#D2DCE8] shadow-xs text-xs overflow-hidden">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x divide-[#D2DCE8]">
           <div class="p-3.5 sm:p-4">
             <span class="block text-slate-500 font-mono text-[10px] uppercase tracking-wider mb-0.5">Product</span>
             <span class="font-bold text-slate-900 text-sm">Hisaab / ChallanOS</span>
@@ -942,13 +912,13 @@
           <div class="p-3.5 sm:p-4">
             <span class="block text-slate-500 font-mono text-[10px] uppercase tracking-wider mb-0.5">Key
               Innovation</span>
-            <span class="font-bold text-brand-600 text-sm">Separated Payer & Party</span>
+            <span class="font-bold text-[#173796] text-sm">Separated Payer & Party</span>
           </div>
           <div class="p-3.5 sm:p-4 flex items-center justify-between">
             <div>
               <span
                 class="block text-slate-500 font-mono text-[10px] uppercase tracking-wider mb-0.5">Deliverables</span>
-              <a href="#screens" class="text-brand-600 font-bold text-sm hover:underline flex items-center gap-1">
+              <a href="#screens" class="text-[#173796] font-bold text-sm hover:underline flex items-center gap-1">
                 <span>6 Core Screens</span> &rarr;
               </a>
             </div>
@@ -956,50 +926,22 @@
         </div>
       </div>
 
-      <!-- Live Dashboard Showcase Card (Front-Facing 2K View, Direct Product Presentation) -->
-      <div class="rounded-2xl border border-[#CDD7E5] bg-white p-5 sm:p-6 shadow-sm overflow-hidden space-y-4">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-[#CDD7E5]">
-          <div class="flex items-center gap-2 font-mono text-xs text-slate-700">
-            <span class="font-bold text-slate-900">Apex Fleet Pvt Ltd</span>
-            <span class="text-slate-400">•</span>
-            <span>Live Triage Workspace (842 Vehicles Synced)</span>
+      <!-- Front-Facing 2K Ultra-HD Master Production Screenshot -->
+      <div id="preview-mode-hd" class="w-full rounded-xl border border-[#D2DCE8] shadow-md overflow-hidden bg-white cursor-pointer group transition-all"
+        onclick="openModal('modal-dashboard-zoom')" title="Click to inspect 2K Fullscreen">
+        <div
+          class="bg-[#F4F7FB] px-4 py-2.5 border-b border-[#D2DCE8] flex items-center justify-between text-xs text-slate-600">
+          <div class="flex items-center gap-2 font-mono text-[11px] font-semibold text-slate-700">
+            <i class="fa-solid fa-display text-[#173796]"></i>
+            <span>1920 × 1200 • 2X Ultra-HD Master Production Screenshot</span>
           </div>
-
-          <div class="flex flex-wrap items-center gap-2.5">
-            <button onclick="openModal('modal-dashboard-zoom')"
-              class="text-xs px-3.5 py-1.5 rounded-lg bg-white hover:bg-slate-50 border border-[#CDD7E5] text-slate-800 font-bold transition-all shadow-2xs flex items-center gap-1.5 cursor-pointer hover:border-brand-500"
-              title="Inspect Full 2K Resolution">
-              <i class="fa-solid fa-magnifying-glass-plus text-brand-600"></i>
-              <span>Inspect Fullscreen (2K)</span>
-            </button>
-
-            <a href="#screens"
-              class="text-xs px-3.5 py-1.5 rounded-lg bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer">
-              <span>Interactive Screens</span>
-              <i class="fa-solid fa-arrow-down text-[10px]"></i>
-            </a>
-          </div>
+          <span class="text-[11px] font-semibold text-[#173796] flex items-center gap-1.5 group-hover:text-[#0E1F52] transition-colors">
+            <i class="fa-solid fa-arrows-up-down-left-right text-[10px]"></i>
+            <span>Inspect Fullscreen (2K)</span>
+          </span>
         </div>
-
-        <!-- Front-Facing 2K Ultra-HD Dashboard (1920x1200 Pixel-Crisp Uncompressed) -->
-        <div id="preview-mode-hd" class="flex flex-col items-center justify-center py-1 relative">
-          <div
-            class="w-full max-w-5xl rounded-2xl border border-[#CDD7E5] shadow-lg overflow-hidden bg-white cursor-pointer group"
-            onclick="openModal('modal-dashboard-zoom')" title="Click for fullscreen inspector">
-            <div
-              class="bg-[#F7F9FC] px-4 py-2 border-b border-[#CDD7E5] flex items-center justify-between text-xs text-slate-600">
-              <div class="flex items-center gap-2 font-mono text-[11px] font-medium text-slate-600">
-                <i class="fa-solid fa-display text-brand-600"></i>
-                <span>1920 × 1200 • 2X Ultra-HD Master Screenshot</span>
-              </div>
-              <span class="text-[11px] font-semibold text-brand-600 flex items-center gap-1 group-hover:text-brand-700">
-                <i class="fa-solid fa-arrows-up-down-left-right text-[10px]"></i> 100% Crisp Master Resolution
-              </span>
-            </div>
-            <img src="assets/images/hisaab-dashboard-hd.png" alt="Hisaab Fleet Compliance OS HD Direct Dashboard"
-              class="w-full object-contain">
-          </div>
-        </div>
+        <img src="assets/images/hisaab-dashboard-hd.png" alt="Hisaab Fleet Compliance OS HD Direct Dashboard"
+          class="w-full h-auto object-contain block">
       </div>
 
       <!-- Live KPI Metrics Snapshot -->
@@ -1821,10 +1763,9 @@
 
     <!-- ================= 06 EDGE CASES  ================= -->
     <section id="edge-cases" class="space-y-8 scroll-mt-20">
-      <div class="mb-6">
-        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">16 Deterministic Edge
+      <div class="mb-6 border-b border-[#D2DCE8] pb-3">
+        <h2 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 tracking-tight">06. 16 Deterministic Edge
           Cases & System Exceptions</h2>
-      </div>
       </div>
 
       <!-- Edge Cases Table -->
@@ -1848,10 +1789,9 @@
 
     <!-- ================= 07 INFORMATION ARCHITECTURE  ================= -->
     <section id="ia" class="space-y-8 scroll-mt-20">
-      <div class="mb-6">
-        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">Core Fleet Objects,
+      <div class="mb-6 border-b border-[#D2DCE8] pb-3">
+        <h2 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 tracking-tight">07. Core Fleet Objects,
           Relational Schema & Global IA</h2>
-      </div>
       </div>
 
       <!-- Subtitle & Context -->
@@ -2123,55 +2063,6 @@
             components.css</p>
         </div>
         <span class="text-xs font-mono text-slate-500">13 Primitives • 48+ Production Variants</span>
-      </div>
-
-      <!-- Core Visual Identity & Philosophy Callout (Solid Dark Container, No Blur, No Translucent Borders) -->
-      <div class="p-6 rounded-2xl bg-[#0B132B] text-white shadow-md space-y-4 border border-[#243354]">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#243354] pb-4">
-          <div>
-            <span class="text-[10px] font-mono uppercase tracking-widest text-brand-400 font-bold block mb-1">Visual
-              Identity & System Foundation</span>
-            <h3 class="text-lg sm:text-xl font-bold tracking-tight font-heading">Warm Neutral Canvas, Strict Geometric
-              Radii, Deep Ink & Semantic Lifecycle Tokens</h3>
-          </div>
-          <div
-            class="flex items-center gap-2 text-xs font-mono text-slate-300 bg-[#162344] px-3 py-1.5 rounded-lg border border-[#2B3E68]">
-            <i class="fa-solid fa-code text-brand-400"></i>
-            <span>Pure CSS Custom Properties (Zero Framework Dependencies)</span>
-          </div>
-        </div>
-
-        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-4xl">
-          Extracted directly from the ChallanOS production codebase (<code
-            class="text-blue-300 font-mono">variables.css</code> & <code
-            class="text-blue-300 font-mono">components.css</code>). The system eliminates generic corporate grays in
-          favor of a warm, paper-textured enterprise surface hierarchy with rigorous WCAG AAA contrast ratios (15:1 for
-          ink text, 7.5:1 for metadata) and a strict geometric scale where pills are reserved exclusively for lifecycle
-          status indicators.
-        </p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs">
-          <div class="p-3 rounded-xl bg-white/5 border border-white/10 space-y-1">
-            <span class="text-[10px] font-mono uppercase text-slate-400 font-bold block">Paper Foundation</span>
-            <strong class="text-white block font-mono text-xs">#F3F2EE Canvas</strong>
-            <span class="text-[11px] text-slate-400">Warm editorial contrast</span>
-          </div>
-          <div class="p-3 rounded-xl bg-white/5 border border-white/10 space-y-1">
-            <span class="text-[10px] font-mono uppercase text-slate-400 font-bold block">Text Contrast</span>
-            <strong class="text-white block font-mono text-xs">#16181D Deep Ink</strong>
-            <span class="text-[11px] text-slate-400">15:1 WCAG AAA Compliant</span>
-          </div>
-          <div class="p-3 rounded-xl bg-white/5 border border-white/10 space-y-1">
-            <span class="text-[10px] font-mono uppercase text-slate-400 font-bold block">Primary Accent</span>
-            <strong class="text-white block font-mono text-xs">#243360 Indigo Ink</strong>
-            <span class="text-[11px] text-slate-400">Executive decision tone</span>
-          </div>
-          <div class="p-3 rounded-xl bg-white/5 border border-white/10 space-y-1">
-            <span class="text-[10px] font-mono uppercase text-slate-400 font-bold block">Strict Anchor Rule</span>
-            <strong class="text-white block font-mono text-xs">One Dark Panel / Screen</strong>
-            <span class="text-[11px] text-slate-400">Anchors visual focus</span>
-          </div>
-        </div>
       </div>
 
       <!-- PART 1: 4-TIER SURFACE ARCHITECTURE & CORE SYSTEM TOKENS -->
@@ -3170,7 +3061,6 @@
           </div>
 
         </div>
-      </div>
       </div>
     </section>
 
@@ -4381,300 +4271,11 @@
       </div>
     </section>
 
-    <!-- ================= 15 PROTOTYPE DEMO SCRIPT  ================= -->
-    <section id="walkthrough" class="space-y-8 scroll-mt-20">
-      <div class="mb-6">
-        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">6-Minute Executive
-          Presentation & Demo Script</h2>
-      </div>
-      </div>
-
-      <!-- Narrative Introduction -->
-      <div
-        class="p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-slate-50 border border-blue-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <span class="text-xs font-bold uppercase tracking-wider text-blue-900">Recorded Live Walkthrough
-              Storyline</span>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-            The walkthrough follows a single, high-stakes enterprise journey: <em>A Fleet Manager arrives on Monday
-              morning, discovers unassigned high-penalty challans, evaluates AI evidence, and settles liability before
-              compounding late fees hit.</em>
-          </p>
-        </div>
-        <div
-          class="flex items-center gap-2 text-xs font-mono font-bold text-slate-600 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shrink-0 shadow-2xs">
-          <i class="fa-solid fa-stopwatch text-blue-600"></i>
-          <span>Total Duration: 06:00</span>
-        </div>
-      </div>
-
-      <!-- Behance Interactive Storyboard Timeline -->
-      <div
-        class="bg-white rounded-3xl border border-slate-200/90 shadow-[0_4px_25px_-5px_rgba(15,23,42,0.05)] overflow-hidden">
-        <div class="p-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-            <i class="fa-solid fa-clapperboard text-blue-600"></i>
-            <span>Video Prototype Cue Sheet & Script</span>
-          </span>
-          <span class="text-[11px] font-mono text-slate-500">10 Chronological Beats</span>
-        </div>
-
-        <div class="divide-y divide-slate-100">
-
-          <!-- Beat 1: 0:00 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">00:00</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 01</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <a href="#overview"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group">
-                <i class="fa-solid fa-bullseye text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Problem Slide (Section 01)</span>
-              </a>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Context & Thesis</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>Challans attach to vehicles, but
-              decisions need people. Spreadsheets break at scale when managing multi-party logistics liability.<span
-                class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 2: 0:45 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">00:45</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 02</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <a href="#users"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group">
-                <i class="fa-solid fa-users text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Users & Journey (02, 04)</span>
-              </a>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Personas & 7-Stage Stepper</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>Two primary users, seven
-              distinct operational stages, and the two critical fault points where legacy workflows break: Assign and
-              Pay.<span class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 3: 1:45 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">01:45</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 03</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <button onclick="switchScreen('screen-1')"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group cursor-pointer text-left">
-                <i class="fa-solid fa-chart-pie text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Dashboard (Screen 1)</span>
-              </button>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Prioritised Work Queue</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>Unassigned is the urgent red
-              card requiring immediate triage. I click it to filter the immediate morning queue.<span
-                class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 4: 2:15 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">02:15</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 04</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <button onclick="switchScreen('screen-2')"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group cursor-pointer text-left">
-                <i class="fa-solid fa-truck-moving text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Vehicle Listing (Screen 2)</span>
-              </button>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Three Onboarding Ingestions</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>Three ways to onboard: manual,
-              Excel, or VAHAN API. Note Responsible-now and sync columns. Select two vehicles and trigger the floating
-              bulk bar.<span class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 5: 2:45 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">02:45</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 05</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <button onclick="switchScreen('screen-3')"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group cursor-pointer text-left">
-                <i class="fa-solid fa-gauge text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Vehicle Details (Screen 3)</span>
-              </button>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Timeline Custody Graph</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>The interactive custody timeline
-              shows exactly who held the vehicle when each challan occurred, eliminating he-said-she-said disputes.<span
-                class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 6: 3:15 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">03:15</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 06</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <button onclick="switchScreen('screen-4')"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group cursor-pointer text-left">
-                <i class="fa-solid fa-receipt text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Challan Listing (Screen 4)</span>
-              </button>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Status Tabs & Bulk Action</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>State-based status tabs,
-              high-contrast overdue warning pills, and one-click bulk assignment for batch operations.<span
-                class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 7: 3:45 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">03:45</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 07</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <button onclick="switchScreen('screen-5')"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group cursor-pointer text-left">
-                <i class="fa-solid fa-wand-magic-sparkles text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Challan Details & AI (Screen 5)</span>
-              </button>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Explainable Attribution</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>AI suggestion surfaces the exact
-              contract clause and 94% confidence score. I review, override to Driver, dispatch notification, and
-              close.<span class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 8: 4:30 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">04:30</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 08</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <button onclick="switchScreen('screen-6')"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group cursor-pointer text-left">
-                <i class="fa-solid fa-scale-balanced text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Payment & Resolution (Screen 6)</span>
-              </button>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Dual-Ledger Settlement</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>Pay by fleet to prevent
-              compounding impoundment, then recover from driver payroll. Inspect failed transactions, telematics
-              disputes, and virtual court summons.<span
-                class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 9: 5:15 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">05:15</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 09</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <a href="#design-system"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group">
-                <i class="fa-brands fa-figma text-purple-600 group-hover:scale-110 transition-transform"></i>
-                <span>Design System (Section 08)</span>
-              </a>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Tokens & Primitives</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>Strict design system with 13
-              component primitives and 8 status tokens. Modifying one token safely propagates across every card and
-              modal in the suite.<span class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-          <!-- Beat 10: 5:45 -->
-          <div
-            class="p-4 sm:p-5 hover:bg-slate-50/70 transition-colors flex flex-col md:flex-row items-start md:items-center gap-4">
-            <div class="flex items-center gap-3 w-full md:w-36 shrink-0">
-              <span
-                class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 font-mono text-xs font-bold tracking-tight">05:45</span>
-              <span class="text-[11px] font-mono font-semibold text-slate-400">Beat 10</span>
-            </div>
-            <div class="w-full md:w-56 shrink-0">
-              <a href="#decisions"
-                class="inline-flex items-center gap-1.5 font-bold text-xs text-slate-900 hover:text-blue-600 group">
-                <i class="fa-solid fa-compass-drafting text-blue-600 group-hover:scale-110 transition-transform"></i>
-                <span>Decisions & Roadmap (17, 18)</span>
-              </a>
-              <span class="block text-[11px] text-slate-500 mt-0.5">Strategic Defense & Horizon</span>
-            </div>
-            <div
-              class="flex-1 bg-slate-50/80 p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-800 font-sans italic relative">
-              <span class="text-blue-600 font-sans font-bold not-italic mr-1.5">“</span>How we validated the
-              architecture, the strategic trade-offs accepted, and what our engineering team will build across Phases V1
-              to V3.<span class="text-blue-600 font-sans font-bold not-italic ml-1">”</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ================= 16 AI USAGE  ================= -->
     <section id="ai" class="space-y-8 scroll-mt-20">
-      <div class="mb-6">
-        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">AI as a Design
+      <div class="mb-6 border-b border-[#D2DCE8] pb-3">
+        <h2 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 tracking-tight">16. AI as a Design
           Multiplier & Ethical Guardrails</h2>
-      </div>
       </div>
 
       <!-- Lead Summary -->
@@ -4829,10 +4430,8 @@
 
     <!-- ================= 17 DECISIONS & TRADE-OFFS  ================= -->
     <section id="decisions" class="space-y-8 scroll-mt-20">
-      <div class="mb-6">
-        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">Key Decisions &
-          Strategic Trade-Offs</h2>
-      </div>
+      <div class="mb-6 border-b border-[#D2DCE8] pb-3">
+        <h2 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 tracking-tight">17. Key Decisions & Strategic Trade-Offs</h2>
       </div>
 
       <!-- Trade-Offs Table -->
@@ -4982,10 +4581,8 @@
 
     <!-- ================= 18 NEXT STEPS & ROADMAP  ================= -->
     <section id="next-steps" class="space-y-8 scroll-mt-20">
-      <div class="mb-6">
-        <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 tracking-tight">Validation Plan,
-          Phased Roadmap (V1-V3) & Defense</h2>
-      </div>
+      <div class="mb-6 border-b border-[#D2DCE8] pb-3">
+        <h2 class="text-2xl sm:text-3xl font-heading font-black text-slate-900 tracking-tight">18. Validation Plan, Phased Roadmap (V1-V3) & Defense</h2>
       </div>
 
       <!-- Validation Plan & Build Roadmap Grid -->
@@ -5950,7 +5547,6 @@
       { type: 'Section', title: '06. 16 Deterministic Edge Cases Matrix', desc: 'Comprehensive exceptions: partial sync, sold vehicles, split liability', icon: 'fa-shield-halved', target: 'edge-cases' },
       { type: 'Section', title: '07. Information Architecture & Objects', desc: 'Core fleet data model, schema relationships, and global navigation sidebar', icon: 'fa-sitemap', target: 'ia' },
       { type: 'Section', title: '08. Tokenized Design System', desc: 'Brand, Neutral & Status colors, 8 status pills, and typography tokens', icon: 'fa-swatchbook', target: 'design-system' },
-      { type: 'Section', title: '15. 6-Minute Prototype Demo Walkthrough', desc: 'Scripted executive presentation flow for interviewers and product leaders', icon: 'fa-play', target: 'walkthrough' },
       { type: 'Section', title: '16. AI Usage & Design Guardrails', desc: 'How AI accelerated the workflow vs. where designer authority prevailed', icon: 'fa-robot', target: 'ai' },
       { type: 'Section', title: '17. Strategic Decisions & UX Trade-Offs', desc: '5 key product trade-offs and 5 quantifiable UX measurement criteria', icon: 'fa-scale-balanced', target: 'decisions' },
       { type: 'Section', title: '18. Validation Plan & Phased Roadmap', desc: 'Horizon V1 to V3 feature evolution and unresolved regulatory questions', icon: 'fa-map', target: 'next-steps' }
