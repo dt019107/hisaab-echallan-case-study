@@ -32,43 +32,43 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            heading: ['Archivo', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            heading: ['Archivo', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'Courier New', 'monospace'],
           },
           colors: {
             brand: {
-              50:  '#EEF4FF',
-              100: '#DBEAFE',
-              200: '#BFDBFE',
-              500: '#2563EB',
-              600: '#1E51D4', /* Premium cobalt — signature brand token */
-              700: '#1740AD',
-              800: '#1E3A8A',
-              navy: '#0D1B2E',
+              50:  '#F0F4FD',
+              100: '#E0EBFC',
+              200: '#C3D7FA',
+              500: '#1E40AF',
+              600: '#173796', /* Institutional Executive Cobalt */
+              700: '#122A72',
+              800: '#0E1F52',
+              navy: '#090D1A',
             },
             blue: {
-              50:  '#EEF4FF',
-              100: '#DBEAFE',
-              200: '#BFDBFE',
-              500: '#2563EB',
-              600: '#1E51D4',
-              700: '#1740AD',
-              800: '#1E3A8A',
+              50:  '#F0F4FD',
+              100: '#E0EBFC',
+              200: '#C3D7FA',
+              500: '#1E40AF',
+              600: '#173796',
+              700: '#122A72',
+              800: '#0E1F52',
             },
             surface: {
-              canvas: '#F0F4FA',
+              canvas: '#F6F8FB',
               card:   '#FFFFFF',
-              subtle: '#F5F8FD',
-              border: '#C8D5E8',
+              subtle: '#F8FAFD',
+              border: '#D2DCE8',
             },
             status: {
-              unassigned: '#B91C1C',
-              assigned:   '#1D4ED8',
-              pending:    '#B45309',
-              paid:       '#059669',
-              disputed:   '#7C3AED',
-              court:      '#0369A1',
+              unassigned: '#991B1B',
+              assigned:   '#173796',
+              pending:    '#92400E',
+              paid:       '#065F46',
+              disputed:   '#5B21B6',
+              court:      '#075985',
             }
           }
         }
@@ -78,15 +78,20 @@
 
   <style>
     /* ============================================================
-       PREMIUM DESIGN SYSTEM — Enhanced Color & Visual Contrast
-       Senior UX Review Pass: Nov 2026
+       SENIOR VISUAL DESIGN SYSTEM — BESPOKE ENTERPRISE ARCHITECTURE
+       MNC Design Review Grade • 100% WCAG AAA Compliant
        ============================================================ */
 
-    /* Base canvas — warm white, not flat grey */
+    /* Tactile Engineering Canvas with Blueprint Micro-Grid Texture */
     body {
-      background-color: #F0F4FA;
-      color: #0D1B2E;
-      font-family: 'Inter', sans-serif;
+      background-color: #F6F8FB;
+      background-image: 
+        radial-gradient(rgba(15, 23, 42, 0.055) 0.75px, transparent 0.75px),
+        linear-gradient(180deg, #FFFFFF 0%, rgba(246, 248, 251, 0) 480px);
+      background-size: 24px 24px, 100% 480px;
+      background-repeat: repeat, no-repeat;
+      color: #090D1A;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -94,210 +99,369 @@
 
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Archivo', sans-serif;
-      color: #0D1B2E;
+      color: #090D1A;
       letter-spacing: -0.025em;
+      font-weight: 800;
     }
 
     p, li, td {
-      color: #344563;
-      line-height: 1.65;
+      color: #2D3748;
+      line-height: 1.68;
       text-rendering: optimizeLegibility;
     }
 
     strong, b, th {
-      color: #0D1B2E;
+      color: #090D1A;
       font-weight: 700;
     }
 
-    /* ---- Premium neutral scale (brand-cobalt tinted) ---- */
-    .border-slate-200 { border-color: #C8D5E8 !important; }
-    .border-slate-300 { border-color: #B0C2D9 !important; }
-    .bg-slate-50      { background-color: #F5F8FD !important; }
-    .bg-slate-100     { background-color: #EAF0F9 !important; }
-    .bg-slate-200     { background-color: #D6E2F2 !important; }
-    .bg-slate-900     { background-color: #0D1B2E !important; }
-    .text-slate-900   { color: #0D1B2E !important; }
-    .text-slate-800   { color: #182A42 !important; }
-    .text-slate-700   { color: #344563 !important; }
-    .text-slate-600   { color: #4A617F !important; }
-    .text-slate-500   { color: #617898 !important; }
-    .text-slate-400   { color: #8299B4 !important; }
+    /* ---- Precision Neutral Palette (Architectural Slate) ---- */
+    .border-slate-200 { border-color: #D2DCE8 !important; }
+    .border-slate-300 { border-color: #B8C7D9 !important; }
+    .bg-slate-50      { background-color: #F8FAFD !important; }
+    .bg-slate-100     { background-color: #EEF3F8 !important; }
+    .bg-slate-200     { background-color: #DEE7F2 !important; }
+    .bg-slate-900     { background-color: #090D1A !important; }
+    .text-slate-900   { color: #090D1A !important; }
+    .text-slate-800   { color: #172033 !important; }
+    .text-slate-700   { color: #2D3748 !important; }
+    .text-slate-600   { color: #4A586E !important; }
+    .text-slate-500   { color: #5D6D82 !important; }
+    .text-slate-400   { color: #7B8CA3 !important; }
 
-    /* ---- Section separator enhancement ---- */
+    /* ---- Section Anchor Rules & Hierarchy ---- */
     section {
       position: relative;
     }
 
-    /* ---- Premium card surface ---- */
-    .card-surface {
-      background-color: #FFFFFF;
-      border: 1px solid #C8D5E8;
-      box-shadow: 0 1px 4px 0 rgba(13, 27, 46, 0.06), 0 0 0 0px transparent;
-      transition: box-shadow 0.2s ease, border-color 0.2s ease;
-    }
-    .card-surface:hover {
-      border-color: #A0B8D8;
-      box-shadow: 0 4px 16px 0 rgba(13, 27, 46, 0.09);
-    }
-
-    /* ---- Section heading accent bar ---- */
+    /* Clean typography hierarchy — eliminates artificial AI accent line formula */
     section > div > h2::before {
-      content: '';
-      display: inline-block;
-      width: 4px;
-      height: 1em;
-      background: linear-gradient(180deg, #1E51D4 0%, #3B82F6 100%);
-      border-radius: 2px;
-      margin-right: 10px;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
+      content: none !important;
     }
 
-    /* ---- Premium scrollbar ---- */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: rgba(13, 27, 46, 0.03); }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(30, 81, 212, 0.25);
-      border-radius: 9999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(30, 81, 212, 0.45);
-    }
-
-    .number-tabular { font-variant-numeric: tabular-nums; }
-
-    /* ---- Premium KPI card ---- */
-    .kpi-card {
-      background: #FFFFFF;
-      border: 1px solid #C8D5E8;
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 2px 8px -2px rgba(13, 27, 46, 0.07);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .kpi-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px -4px rgba(13, 27, 46, 0.12);
-    }
-    .kpi-card.urgent {
-      background: linear-gradient(135deg, #FEF2F2 0%, #FFF5F5 100%);
-      border-color: #FCA5A5;
-      border-width: 1.5px;
-    }
-
-    /* ---- Premium section divider bar ---- */
     .section-rule {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding-bottom: 14px;
-      border-bottom: 1.5px solid #C8D5E8;
-      margin-bottom: 4px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #D2DCE8;
+      margin-bottom: 6px;
     }
     .section-rule-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1E51D4, #60A5FA);
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
+      background: #173796;
       flex-shrink: 0;
     }
 
-    /* ---- Highlight callout (insight box) ---- */
+    /* ---- Layered Architectural Surfaces (Stripe / Linear Precision Elevation) ---- */
+    .card-surface {
+      background-color: #FFFFFF;
+      border: 1px solid #D2DCE8;
+      border-radius: 8px;
+      box-shadow: 0 1px 2px 0 rgba(9, 13, 26, 0.04), 0 0 0 1px rgba(9, 13, 26, 0.02);
+      transition: box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, transform 0.2s ease;
+    }
+    .card-surface:hover {
+      border-color: #B2C3D9;
+      box-shadow: 0 8px 24px -4px rgba(9, 13, 26, 0.08), 0 2px 6px -1px rgba(9, 13, 26, 0.04);
+      transform: translateY(-1px);
+    }
+
+    /* Architectural card rounding normalization */
+    .rounded-2xl { border-radius: 10px !important; }
+    .rounded-xl  { border-radius: 8px !important; }
+    .rounded-lg  { border-radius: 6px !important; }
+
+    /* Elevation Shadows */
+    .shadow-sm, .shadow-xs, .shadow-2xs {
+      box-shadow: 0 1px 2px 0 rgba(9, 13, 26, 0.04), 0 0 0 1px rgba(9, 13, 26, 0.02) !important;
+    }
+    .shadow-md {
+      box-shadow: 0 4px 12px -2px rgba(9, 13, 26, 0.06), 0 1px 3px rgba(9, 13, 26, 0.03) !important;
+    }
+    .shadow-lg {
+      box-shadow: 0 10px 28px -4px rgba(9, 13, 26, 0.08), 0 2px 6px rgba(9, 13, 26, 0.04) !important;
+    }
+    .shadow-xl, .shadow-2xl {
+      box-shadow: 0 20px 40px -8px rgba(9, 13, 26, 0.14), 0 4px 12px rgba(9, 13, 26, 0.06) !important;
+    }
+
+    /* ---- Micro-Components: Bespoke Engineering Badges (Kills Generic AI Jellybean Pills) ---- */
+    /* Clamp badge pills with padding to clean 4px-6px architectural radius, while keeping circular pips */
+    span.rounded-full:not(.w-1):not(.w-1\.5):not(.w-2):not(.w-2\.5):not(.w-3):not(.w-4):not(.w-5):not(.w-6):not(.w-7):not(.w-8):not(.w-10):not(.w-12):not(.w-16):not(.w-20),
+    div.rounded-full:not(.w-1):not(.w-1\.5):not(.w-2):not(.w-2\.5):not(.w-3):not(.w-4):not(.w-5):not(.w-6):not(.w-7):not(.w-8):not(.w-10):not(.w-12):not(.w-16):not(.w-20) {
+      border-radius: 4px !important;
+      letter-spacing: 0.02em !important;
+    }
+
+    /* Precise Lifecycle Status Tokens */
+    .pill-unassigned {
+      background: #FFF5F5 !important;
+      color: #991B1B !important;
+      border: 1px solid #FCA5A5 !important;
+      border-radius: 4px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      padding: 2px 7px !important;
+      box-shadow: 0 1px 2px rgba(153, 27, 27, 0.04);
+    }
+    .pill-assigned {
+      background: #F0F6FF !important;
+      color: #173796 !important;
+      border: 1px solid #BFDBFE !important;
+      border-radius: 4px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      padding: 2px 7px !important;
+      box-shadow: 0 1px 2px rgba(23, 55, 150, 0.04);
+    }
+    .pill-pending {
+      background: #FFFBEB !important;
+      color: #92400E !important;
+      border: 1px solid #FDE68A !important;
+      border-radius: 4px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      padding: 2px 7px !important;
+      box-shadow: 0 1px 2px rgba(146, 64, 14, 0.04);
+    }
+    .pill-paid {
+      background: #F0FDF4 !important;
+      color: #065F46 !important;
+      border: 1px solid #A7F3D0 !important;
+      border-radius: 4px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      padding: 2px 7px !important;
+      box-shadow: 0 1px 2px rgba(6, 95, 70, 0.04);
+    }
+    .pill-disputed {
+      background: #F5F3FF !important;
+      color: #5B21B6 !important;
+      border: 1px solid #DDD6FE !important;
+      border-radius: 4px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      padding: 2px 7px !important;
+      box-shadow: 0 1px 2px rgba(91, 33, 182, 0.04);
+    }
+    .pill-court {
+      background: #F0F9FF !important;
+      color: #075985 !important;
+      border: 1px solid #BAE6FD !important;
+      border-radius: 4px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.03em !important;
+      padding: 2px 7px !important;
+      box-shadow: 0 1px 2px rgba(7, 89, 133, 0.04);
+    }
+
+    /* ---- Tactile Precision Buttons (Apple / Linear Micro-Physics) ---- */
+    .bg-brand-600, .bg-blue-600 {
+      background: #173796 !important;
+      border: 1px solid #0E1F52 !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 1px 2px rgba(9, 13, 26, 0.08) !important;
+      border-radius: 6px !important;
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .bg-brand-600:hover, .bg-blue-600:hover {
+      background: #0E1F52 !important;
+      border-color: #090D1A !important;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 3px 8px rgba(9, 13, 26, 0.12) !important;
+    }
+    .bg-brand-600:active, .bg-blue-600:active {
+      transform: translateY(1px) !important;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    button.bg-white, a.bg-white {
+      border: 1px solid #D2DCE8 !important;
+      border-radius: 6px !important;
+      box-shadow: 0 1px 2px rgba(9, 13, 26, 0.04), inset 0 1px 0 #FFFFFF !important;
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    button.bg-white:hover, a.bg-white:hover {
+      border-color: #B2C3D9 !important;
+      background: #F8FAFD !important;
+      box-shadow: 0 2px 5px rgba(9, 13, 26, 0.06) !important;
+    }
+    button.bg-white:active, a.bg-white:active {
+      transform: translateY(1px) !important;
+    }
+
+    /* ---- Executive Editorial Sidecars (Replaces 2012 Blog Gradient Callouts) ---- */
     .insight-box {
-      background: linear-gradient(135deg, #EEF4FF 0%, #F0F7FF 100%);
-      border: 1px solid #BFDBFE;
-      border-left: 4px solid #1E51D4;
-      border-radius: 10px;
-      padding: 14px 16px;
+      background: #FFFFFF !important;
+      border: 1px solid #D2DCE8 !important;
+      border-left: 3px solid #173796 !important;
+      border-radius: 6px !important;
+      padding: 14px 18px !important;
+      box-shadow: 0 1px 3px rgba(9, 13, 26, 0.03) !important;
     }
     .insight-box.warning {
-      background: linear-gradient(135deg, #FFFBEB 0%, #FEFCE8 100%);
-      border-color: #FDE68A;
-      border-left-color: #D97706;
+      background: #FFFCF5 !important;
+      border-color: #FDE68A !important;
+      border-left: 3px solid #D97706 !important;
     }
     .insight-box.danger {
-      background: linear-gradient(135deg, #FFF5F5 0%, #FFF1F2 100%);
-      border-color: #FECACA;
-      border-left-color: #DC2626;
+      background: #FFF8F8 !important;
+      border-color: #FECACA !important;
+      border-left: 3px solid #DC2626 !important;
     }
     .insight-box.success {
-      background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%);
-      border-color: #A7F3D0;
-      border-left-color: #059669;
+      background: #F7FEFA !important;
+      border-color: #A7F3D0 !important;
+      border-left: 3px solid #059669 !important;
     }
 
-    /* ---- Timeline (journey) dots ---- */
+    /* ---- Timeline Step Markers (Bespoke Index vs Glowing AI Orbs) ---- */
     .timeline-node {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #1E51D4, #3B82F6);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 800;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(30, 81, 212, 0.35);
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 6px !important;
+      background: #FFFFFF !important;
+      border: 2px solid #173796 !important;
+      color: #173796 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 11px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-weight: 800 !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 1px 3px rgba(23, 55, 150, 0.12) !important;
     }
 
-    /* ---- Status pill system ---- */
-    .pill-unassigned  { background:#FEE2E2; color:#991B1B; border:1px solid #FECACA; }
-    .pill-assigned    { background:#DBEAFE; color:#1E3A8A; border:1px solid #BFDBFE; }
-    .pill-pending     { background:#FEF3C7; color:#92400E; border:1px solid #FDE68A; }
-    .pill-paid        { background:#D1FAE5; color:#065F46; border:1px solid #A7F3D0; }
-    .pill-disputed    { background:#EDE9FE; color:#4C1D95; border:1px solid #C4B5FD; }
-    .pill-court       { background:#E0F2FE; color:#0C4A6E; border:1px solid #BAE6FD; }
+    /* ---- High-Density Enterprise Data Grid (Linear / Bloomberg Terminal Precision) ---- */
+    table {
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      width: 100% !important;
+      border: 1px solid #D2DCE8 !important;
+      border-radius: 8px !important;
+      overflow: hidden !important;
+    }
+    thead {
+      background: #F4F7FB !important;
+      border-bottom: 1px solid #D2DCE8 !important;
+    }
+    th {
+      letter-spacing: 0.05em !important;
+      font-size: 10px !important;
+      font-family: 'JetBrains Mono', monospace !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      color: #4A586E !important;
+      padding: 9px 13px !important;
+      border-bottom: 1px solid #D2DCE8 !important;
+      border-right: 1px solid #E8EEF5 !important;
+    }
+    th:last-child {
+      border-right: none !important;
+    }
+    td {
+      padding: 10px 13px !important;
+      border-bottom: 1px solid #E8EEF5 !important;
+      border-right: 1px solid #E8EEF5 !important;
+      font-size: 12px !important;
+      color: #2D3748 !important;
+    }
+    td:last-child {
+      border-right: none !important;
+    }
+    tbody tr:last-child td {
+      border-bottom: none !important;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #FAFBFD !important;
+    }
+    tbody tr:hover {
+      background-color: #EEF4FC !important;
+    }
 
+    /* ---- KPI Performance Cards ---- */
+    .kpi-card {
+      background: #FFFFFF !important;
+      border: 1px solid #D2DCE8 !important;
+      border-radius: 8px !important;
+      padding: 16px 18px !important;
+      box-shadow: 0 1px 3px rgba(9, 13, 26, 0.04) !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .kpi-card:hover {
+      transform: translateY(-2px) !important;
+      border-color: #B2C3D9 !important;
+      box-shadow: 0 8px 20px -4px rgba(9, 13, 26, 0.08) !important;
+    }
+    .kpi-card.urgent {
+      background: #FFF8F8 !important;
+      border-color: #FCA5A5 !important;
+      border-width: 1px !important;
+      box-shadow: 0 1px 4px rgba(220, 38, 38, 0.08) !important;
+    }
+
+    /* ---- Steady Institutional Telemetry Indicators (Kills AI Arcade Blinkers) ---- */
+    .animate-pulse, .animate-ping {
+      animation: none !important;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25) !important;
+    }
+
+    /* ---- High-End Reading Progress Bar ---- */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2.5px;
+      z-index: 9999;
+      background: #173796;
+      transition: width 0.08s ease-out;
+    }
+
+    /* ---- Swatch Identity Card in Section 08 ---- */
     .swatch-card {
       position: relative;
       background: #FFFFFF;
-      border: 1.5px solid #C8D5E8;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px -4px rgba(13, 27, 46, 0.09);
+      border: 1px solid #D2DCE8;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(9, 13, 26, 0.04);
     }
-
     .swatch-hole {
-      width: 12px;
-      height: 12px;
-      border-radius: 9999px;
-      background-color: #EAF0F9;
-      border: 1px solid #C8D5E8;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background-color: #EEF3F8;
+      border: 1px solid #D2DCE8;
     }
 
-    /* ---- Premium table ---- */
-    table { border-collapse: collapse; }
-    tbody tr:hover { background-color: #F5F8FD !important; }
-    thead { background: linear-gradient(180deg, #F5F8FD 0%, #EAF0F9 100%); }
-    th { letter-spacing: 0.04em; font-size: 10.5px; text-transform: uppercase; color: #617898; }
-
-    /* ---- Gradient hero accent (top of page only) ---- */
-    .hero-gradient-bar {
-      height: 3px;
-      background: linear-gradient(90deg, #1E51D4 0%, #3B82F6 50%, #60A5FA 100%);
-      border-radius: 0 0 2px 2px;
+    /* ---- Tabular Numerals ---- */
+    .number-tabular {
+      font-variant-numeric: tabular-nums lining-nums;
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    /* ---- Float animations ---- */
-    @keyframes float-slow {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-8px); }
+    /* ---- Premium Scrollbars ---- */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: rgba(9, 13, 26, 0.03); }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(23, 55, 150, 0.28);
+      border-radius: 3px;
     }
-    @keyframes float-delayed {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
-    }
-    .animate-float-slow    { animation: float-slow 5s ease-in-out infinite; }
-    .animate-float-delayed { animation: float-delayed 6s ease-in-out 1.5s infinite; }
-
-    /* ---- Reading progress bar ---- */
-    #reading-progress {
-      position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
-      background: linear-gradient(90deg, #1E51D4, #60A5FA);
-      transition: width 0.1s linear;
-      border-radius: 0 2px 2px 0;
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(23, 55, 150, 0.5);
     }
   </style>
 </head>
@@ -436,15 +600,15 @@
           </div>
         </div>
 
-        <!-- Group 3: Core Interactive Screens (Featured Pill) -->
+        <!-- Group 3: Core Interactive Screens (Featured Navigation) -->
         <div class="relative group">
           <a href="#screens"
-            class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100/90 text-blue-700 border border-blue-200/80 font-semibold transition-all">
-            <i class="fa-solid fa-desktop text-blue-600 text-xs"></i>
+            class="flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#090D1A] hover:bg-[#172033] text-white border border-[#090D1A] font-semibold text-xs shadow-2xs transition-all">
+            <i class="fa-solid fa-desktop text-slate-300 text-xs"></i>
             <span>6 Core Screens</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
             <i
-              class="fa-solid fa-chevron-down text-[10px] text-blue-500 group-hover:rotate-180 transition-transform duration-200"></i>
+              class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform duration-200"></i>
           </a>
           <div
             class="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-80 bg-white rounded-xl shadow-xl border border-slate-200/90 py-2 hidden group-hover:block hover:block z-50 transition-all animate-in fade-in slide-in-from-top-1 duration-150">
@@ -721,32 +885,32 @@
             <strong>Hisaab</strong> automatically links every fine to the exact driver on duty, settles it before late fees double, and cleanly recovers the money from the driver’s paycheck or client invoice.
           </p>
 
-          <!-- 3 Plain-English Core Value Pills with High Visual Contrast -->
+          <!-- 3 Plain-English Core Value Tags with High Visual Contrast -->
           <div class="flex flex-wrap items-center gap-2 pt-1">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#EEF4FF] border border-[#BFDBFE] text-brand-700 text-xs font-bold">
-              <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i> Instant Driver Attribution
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#173796]"></span> Instant Driver Attribution
             </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ECFDF5] border border-[#A7F3D0] text-emerald-700 text-xs font-bold">
-              <i class="fa-solid fa-shield-halved text-[10px]"></i> Zero Compounding Late Fees
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#065F46]"></span> Zero Compounding Late Fees
             </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFBEB] border border-[#FDE68A] text-amber-800 text-xs font-bold">
-              <i class="fa-solid fa-scale-balanced text-[10px]"></i> Dual-Ledger Money Recovery
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-[#D2DCE8] text-[#090D1A] text-xs font-semibold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#92400E]"></span> Dual-Ledger Money Recovery
             </span>
           </div>
         </div>
 
         <!-- Hisaab Brand Showcase Card with Enhanced Contrast -->
         <div class="shrink-0 flex items-center justify-start lg:justify-center">
-          <div class="p-5 rounded-2xl bg-white border border-[#C8D5E8] shadow-md flex items-center gap-4">
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#EEF4FF] to-[#DBEAFE] border border-[#BFDBFE] p-2.5 flex items-center justify-center">
+          <div class="p-5 rounded-xl bg-white border border-[#D2DCE8] shadow-sm flex items-center gap-4">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-[#F8FAFD] border border-[#D2DCE8] p-2.5 flex items-center justify-center">
               <img src="assets/images/challanos-logo.png" alt="Hisaab Logo" class="w-full h-full object-contain">
             </div>
             <div class="space-y-0.5">
-              <span class="text-xl sm:text-2xl font-black text-[#0D1B2E] block tracking-tight font-heading">Hisaab</span>
-              <span class="text-xs text-[#617898] font-medium block">Fleet Compliance OS</span>
-              <span class="text-[11px] font-mono text-brand-600 font-bold block">v2.4 Enterprise System</span>
-              <div class="flex items-center gap-1 pt-1">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-xl sm:text-2xl font-black text-[#090D1A] block tracking-tight font-heading">Hisaab</span>
+              <span class="text-xs text-[#5D6D82] font-medium block">Fleet Compliance OS</span>
+              <span class="text-[11px] font-mono text-[#173796] font-bold block">v2.4 Enterprise System</span>
+              <div class="flex items-center gap-1.5 pt-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                 <span class="text-[10px] font-mono text-emerald-700 font-bold">842 Assets Synced</span>
               </div>
             </div>
