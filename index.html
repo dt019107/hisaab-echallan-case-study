@@ -39,14 +39,13 @@
               800: '#0b2680',
               900: '#0e2366',
             },
-            ink: '#111827',         // Deep obsidian ink
-            'ink-muted': '#4b5563',   // Refined charcoal body
+            ink: '#191919',         // Primary Ink Typography (DESIGN.md)
             canvas: '#ffffff',      // Pure White Canvas
-            surface: '#f9fafb',     // Soft Off-white Studio Surface
-            subtle: '#f3f4f6',      // Card Header Surface
-            hairline: '#e5e7eb',    // Signature Hairline Border
-            dim: '#6b7280',         // Subdued Caption Text
-            body: '#374151',        // Expressive Body Text
+            surface: '#fafafa',     // Clean Surface
+            subtle: '#f5f5f5',      // Card Header Surface
+            hairline: '#e5e5e5',    // Signature Light Gray Hairline
+            dim: '#707070',         // Subdued Caption Text
+            body: '#41413f',        // Expressive Body Text
           },
           fontFamily: {
             heading: ['Plus Jakarta Sans', 'Inter', 'Helvetica', 'sans-serif'],
@@ -55,15 +54,12 @@
           },
           boxShadow: {
             '2xs': '0 1px 2px rgba(0,0,0,0.03)',
-            'xs': '0 1px 3px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.04)',
-            'studio': '0 25px 60px -15px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(0,0,0,0.06)',
-            'float': '0 20px 40px -10px rgba(15, 23, 42, 0.10), 0 0 0 1px rgba(229, 231, 235, 0.9)',
-            'glow-cobalt': '0 0 45px -8px rgba(9, 104, 246, 0.22)',
-            'glow-emerald': '0 0 45px -8px rgba(16, 185, 129, 0.20)',
-            'inner-bevel': 'inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 1px 3px rgba(0,0,0,0.04)',
+            'xs': '0 1px 3px rgba(0,0,0,0.05), 0 0 0 1px #e5e5e5',
+            'studio': '0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px #e5e5e5',
+            'float': '0 20px 40px -10px rgba(0, 0, 0, 0.10), 0 0 0 1px rgba(229, 229, 229, 0.9)',
           },
           borderRadius: {
-            'card': '18px',       // Modernized 18px tile radius
+            'card': '16px',       // Signature 16px tile radius (DESIGN.md)
             'pill': '9999px',     // 44px pill radius
           }
         }
@@ -72,67 +68,17 @@
   </script>
 
   <style>
-    :root {
-      --font-mono: 'Geist Mono', monospace;
-    }
-
     body {
-      background-color: #fafbfc;
-      color: #111827;
+      background-color: #ffffff;
+      color: #191919;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(9, 104, 246, 0.035) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.03) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(9, 104, 246, 0.02) 0px, transparent 50%);
-    }
-
-    /* Studio Mesh Grid Background (Subtle Awwwards / Framer aesthetic) */
-    .studio-grid-bg {
-      background-image: 
-        linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
-      background-size: 32px 32px;
     }
 
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-      letter-spacing: -0.03em;
-    }
-
-    /* Ambient studio backdrop for Hero */
-    .hero-studio-canvas {
-      position: relative;
-    }
-    .hero-studio-canvas::before {
-      content: "";
-      position: absolute;
-      top: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 85%;
-      height: 480px;
-      background: radial-gradient(ellipse 70% 60% at 50% 20%, rgba(9, 104, 246, 0.09) 0%, rgba(9, 104, 246, 0) 70%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* Glassmorphism primitives */
-    .glass-surface {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(229, 231, 235, 0.85);
-      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
-    }
-
-    .glass-pill {
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(229, 231, 235, 0.9);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      letter-spacing: -0.025em;
     }
 
     /* Accessible focus ring (accessibility-engineer) */
@@ -160,7 +106,7 @@
       background: #fafafa;
     }
     ::-webkit-scrollbar-thumb {
-      background: #d1d5db;
+      background: #c7c7c7;
       border-radius: 9999px;
     }
     ::-webkit-scrollbar-thumb:hover {
@@ -208,120 +154,97 @@
   <!-- Top Reading Progress Hairline -->
   <div id="reading-progress" class="fixed top-0 left-0 h-0.5 bg-brand-600 z-50 transition-all duration-100" style="width: 0%" aria-hidden="true"></div>
 
-  <!-- Sticky Global Floating Navigation Dock -->
-  <header class="sticky top-3 z-40 max-w-6xl mx-auto px-4 transition-all">
-    <div class="glass-surface rounded-full px-5 h-14 flex items-center justify-between gap-4 border border-hairline/80 shadow-float">
+  <!-- Clean Global Sticky Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-xs border-b border-hairline transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
 
       <!-- Left: Brand Lockup -->
-      <a href="#" class="flex items-center gap-2.5 group focus:outline-hidden" aria-label="Hisaab case study home">
-        <div class="w-8 h-8 rounded-xl bg-ink p-1 border border-white/20 shadow-xs group-hover:scale-105 transition-all flex items-center justify-center">
-          <img src="assets/images/challanos-logo.png" alt="Hisaab logo mark" class="w-5 h-5 object-contain">
+      <a href="#" class="flex items-center gap-3 group focus:outline-hidden" aria-label="Hisaab case study home">
+        <div class="w-9 h-9 rounded-xl bg-ink p-1.5 border border-hairline shadow-2xs group-hover:border-ink transition-all flex items-center justify-center">
+          <img src="assets/images/challanos-logo.png" alt="Hisaab logo mark" class="w-6 h-6 object-contain">
         </div>
         <div class="flex flex-col">
-          <span class="font-extrabold text-xs tracking-tight text-ink group-hover:text-brand-600 transition-colors">Hisaab</span>
-          <span class="text-[10px] font-mono text-dim leading-none">ChallanOS 2026</span>
+          <span class="font-bold text-sm tracking-tight text-ink group-hover:text-brand-600 transition-colors">Hisaab</span>
+          <span class="text-[11px] font-mono text-dim leading-none">ChallanOS Case Study</span>
         </div>
       </a>
 
       <!-- Center: Situational Story Steps with Scroll Spy -->
-      <nav class="hidden lg:flex items-center gap-1 text-[11px] font-semibold text-dim" aria-label="Case Study Navigation">
-        <a href="#hero-showcase" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">Overview</a>
-        <a href="#highway-reality" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">The Problem</a>
-        <a href="#situation-triage" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">01. Triage</a>
-        <a href="#situation-attribution" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">02. Attribution</a>
-        <a href="#situation-custody" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">03. Custody</a>
-        <a href="#situation-disputes" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">04. Disputes</a>
-        <a href="#situation-settlement" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">05. Settlement</a>
-        <a href="#live-portal" class="nav-link px-2.5 py-1 rounded-full text-brand-600 bg-brand-50 hover:bg-brand-100 transition-colors">Live App</a>
-        <a href="#design-system" class="nav-link px-2.5 py-1 rounded-full hover:text-ink hover:bg-subtle transition-colors">System</a>
+      <nav class="hidden xl:flex items-center gap-1 text-xs font-semibold text-dim" aria-label="Case Study Navigation">
+        <a href="#hero-showcase" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">Overview</a>
+        <a href="#highway-reality" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">The Problem</a>
+        <a href="#situation-triage" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">01. Triage</a>
+        <a href="#situation-attribution" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">02. Attribution</a>
+        <a href="#situation-custody" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">03. Custody</a>
+        <a href="#situation-disputes" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">04. Disputes</a>
+        <a href="#situation-settlement" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">05. Settlement</a>
+        <a href="#live-portal" class="nav-link px-2.5 py-1.5 rounded-lg text-brand-600 bg-brand-50 hover:bg-brand-100 transition-colors">Live App</a>
+        <a href="#design-system" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">Tokens</a>
       </nav>
 
       <!-- Right: Action Buttons -->
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2.5">
         <button onclick="openQuickJump()" aria-label="Search sections or features (Shortcut: Command K)"
-          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-hairline bg-surface hover:bg-white text-[11px] font-medium text-dim hover:text-ink transition-all cursor-pointer">
-          <i class="fa-solid fa-magnifying-glass text-[10px]" aria-hidden="true"></i>
+          class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-hairline bg-subtle hover:bg-white text-xs font-medium text-dim hover:text-ink transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[11px]" aria-hidden="true"></i>
           <span>Search</span>
-          <kbd class="font-mono text-[9px] bg-white px-1.5 py-0.5 rounded border border-hairline text-dim">⌘K</kbd>
+          <kbd class="font-mono text-[10px] bg-white px-1.5 py-0.5 rounded border border-hairline text-dim">⌘K</kbd>
         </button>
 
         <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer"
-          class="px-3.5 py-1.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs hover:shadow-glow-cobalt flex items-center gap-1.5 cursor-pointer"
+          class="px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
           aria-label="Launch Live App in new window">
-          <span>Live App</span>
-          <i class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i>
+          <span>Launch Live App</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <main id="main-content" class="space-y-20 sm:space-y-28 py-6 sm:py-10">
+  <main id="main-content" class="space-y-16 sm:space-y-24 py-6 sm:py-10">
 
     <!-- =============================================================================
          1. HERO SECTION & 30-60 SECONDS RECRUITER EXECUTIVE SNAPSHOT
          ============================================================================= -->
-    <section id="hero-showcase" aria-labelledby="heading-hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 hero-studio-canvas pt-4">
+    <section id="hero-showcase" aria-labelledby="heading-hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 pt-4">
       
       <!-- Top Title Lockup -->
-      <div class="space-y-5 max-w-4xl">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-xs font-mono font-semibold text-body">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
+      <div class="space-y-4 max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-subtle border border-hairline text-xs font-mono font-semibold text-dim">
+          <span class="w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
           <span>Lead Product Designer Case Study • Deepak Tiwari</span>
           <span class="text-hairline" aria-hidden="true">|</span>
-          <span class="text-brand-600 font-bold">Commercial Fleet & GovTech OS</span>
+          <span>Commercial Fleet & Lease Compliance</span>
         </div>
 
-        <h1 id="heading-hero" class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink leading-[1.06]">
-          Hisaab: <span class="bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 bg-clip-text text-transparent">Every challan, accounted for.</span>
+        <h1 id="heading-hero" class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink leading-[1.08]">
+          Hisaab: <span class="text-brand-600">Every challan, accounted for.</span>
         </h1>
 
         <p class="text-lg sm:text-2xl text-body font-normal leading-relaxed max-w-3xl">
           Stopping ₹18.5L in compounding traffic fines across 840+ commercial fleet vehicles by connecting Parivahan VAHAN gateways, temporal driver custody, and dual-ledger treasury settlement.
         </p>
 
-        <!-- Live Telemetry Badge Strip -->
-        <div class="flex flex-wrap items-center gap-2.5 pt-1 text-xs">
-          <div class="glass-pill px-3 py-1 rounded-full flex items-center gap-1.5 font-mono text-[11px] text-body">
-            <i class="fa-solid fa-truck text-brand-600" aria-hidden="true"></i>
-            <span><strong>842</strong> Fleet Assets</span>
-          </div>
-          <div class="glass-pill px-3 py-1 rounded-full flex items-center gap-1.5 font-mono text-[11px] text-emerald-700 bg-emerald-50/50 border-emerald-200">
-            <i class="fa-solid fa-shield-check text-emerald-600" aria-hidden="true"></i>
-            <span><strong>₹18.5L</strong> Bleed Stopped</span>
-          </div>
-          <div class="glass-pill px-3 py-1 rounded-full flex items-center gap-1.5 font-mono text-[11px] text-brand-700 bg-brand-50/50 border-brand-200">
-            <i class="fa-solid fa-clock-rotate-left text-brand-600" aria-hidden="true"></i>
-            <span><strong>3.5h → 22m</strong> Morning Triage</span>
-          </div>
-          <div class="glass-pill px-3 py-1 rounded-full flex items-center gap-1.5 font-mono text-[11px] text-body">
-            <i class="fa-solid fa-code-commit text-dim" aria-hidden="true"></i>
-            <span>WCAG 2.2 AA Compliant</span>
-          </div>
-        </div>
-
-        <!-- Hero CTAs -->
-        <div class="flex flex-wrap items-center gap-3 pt-2">
+        <!-- Clean CTAs -->
+        <div class="flex flex-wrap items-center gap-3 pt-1">
           <a href="#live-portal"
-            class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs hover:shadow-glow-cobalt flex items-center gap-2 cursor-pointer">
+            class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer">
             <span>Explore Interactive Prototype</span>
-            <i class="fa-solid fa-play text-[10px]" aria-hidden="true"></i>
+            <i class="fa-solid fa-arrow-down text-[10px]" aria-hidden="true"></i>
           </a>
           <a href="#design-system"
-            class="px-5 py-2.5 rounded-full glass-surface hover:bg-white text-ink text-xs font-semibold transition-all border border-hairline flex items-center gap-2 cursor-pointer">
-            <span>Inspect Design Tokens</span>
+            class="px-5 py-2.5 rounded-full bg-white hover:bg-subtle text-ink text-xs font-semibold transition-all border border-hairline flex items-center gap-2 cursor-pointer">
+            <span>View Design Tokens</span>
             <i class="fa-solid fa-swatchbook text-[10px] text-dim" aria-hidden="true"></i>
           </a>
         </div>
       </div>
 
       <!-- 30-60 SECONDS RECRUITER EXECUTIVE SNAPSHOT -->
-      <div class="rounded-card border border-hairline/80 glass-surface p-6 sm:p-8 space-y-6 shadow-xs">
+      <div class="rounded-card border border-hairline bg-subtle p-6 sm:p-8 space-y-5 shadow-xs">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-hairline">
           <div class="flex items-center gap-2">
-            <span class="font-bold text-ink uppercase tracking-wider font-mono text-xs">⚡ 30-Second Executive Snapshot</span>
+            <span class="font-bold text-ink uppercase tracking-wider font-mono text-xs">Executive Summary</span>
             <span class="text-dim font-mono text-xs">• Problem, Architecture, Business Model, Impact</span>
           </div>
           <span class="font-mono text-brand-600 font-bold text-xs bg-brand-50 px-3 py-1 rounded-full border border-brand-200 self-start sm:self-auto">
@@ -332,7 +255,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           
           <!-- Card 1: The Bottleneck -->
-          <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs hover:border-red-300 transition-colors">
+          <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-red-600 font-mono font-bold text-[11px] uppercase">
               <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
               <span>1. The Core Bottleneck</span>
@@ -344,7 +267,7 @@
           </div>
 
           <!-- Card 2: The Core Fix -->
-          <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs hover:border-brand-300 transition-colors">
+          <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-brand-600 font-mono font-bold text-[11px] uppercase">
               <i class="fa-solid fa-timeline" aria-hidden="true"></i>
               <span>2. Architectural Move</span>
@@ -356,7 +279,7 @@
           </div>
 
           <!-- Card 3: The Treasury Win -->
-          <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs hover:border-amber-300 transition-colors">
+          <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-amber-600 font-mono font-bold text-[11px] uppercase">
               <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
               <span>3. Business Innovation</span>
@@ -368,7 +291,7 @@
           </div>
 
           <!-- Card 4: Measurable Impact -->
-          <div class="p-5 rounded-xl bg-emerald-50/70 border border-emerald-300 space-y-2 shadow-2xs">
+          <div class="p-5 rounded-xl bg-emerald-50/80 border border-emerald-300 space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-emerald-800 font-mono font-bold text-[11px] uppercase">
               <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
               <span>4. Verified Impact</span>
@@ -396,32 +319,26 @@
         </div>
       </div>
 
-      <!-- CURRENT DASHBOARD DESIGN (STUDIO STAGE WITH 2.5D PERSPECTIVE & 5K RETINA CLARITY) -->
-      <div class="space-y-6">
-        <div class="max-w-6xl mx-auto rounded-card border border-hairline/80 bg-white shadow-studio overflow-hidden relative group">
+      <!-- CURRENT DASHBOARD DESIGN (WIDE, CRYSTAL-CLEAR RESOLUTION) -->
+      <div class="space-y-4">
+        <div class="max-w-6xl mx-auto rounded-card border border-hairline bg-white shadow-studio overflow-hidden">
           
-          <!-- Studio Ambient Glare Sheen -->
-          <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/30 pointer-events-none z-10" aria-hidden="true"></div>
-
           <!-- Studio Browser Chrome Header Bar -->
-          <div class="bg-subtle/80 px-4 py-3 border-b border-hairline flex items-center justify-between text-xs text-dim relative z-20">
+          <div class="bg-subtle px-4 py-3 border-b border-hairline flex items-center justify-between text-xs text-dim">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-2xs" aria-hidden="true"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-2xs" aria-hidden="true"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-2xs" aria-hidden="true"></span>
-              <div class="ml-2 px-3 py-0.5 rounded-full bg-white border border-hairline font-mono text-[11px] font-semibold text-ink flex items-center gap-1.5 shadow-inner-bevel">
-                <i class="fa-solid fa-lock text-[9px] text-emerald-600" aria-hidden="true"></i>
-                <span>https://hisaab.fleetops.in/dashboard</span>
-              </div>
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block" aria-hidden="true"></span>
+              <span class="font-mono text-[11px] font-semibold text-ink ml-2">https://hisaab.fleetops.in/dashboard</span>
             </div>
 
             <div class="flex items-center gap-3">
               <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
                 <span>842 Commercial Assets Live</span>
               </span>
               <button onclick="openRetinaModal('assets/images/dashboard-retina-master.png', 'Hisaab Fleet Executive Dashboard (5K Ultra Retina)')"
-                class="px-2.5 py-1 rounded-md bg-white hover:bg-brand-50 border border-hairline text-brand-600 font-semibold flex items-center gap-1 text-[11px] cursor-pointer shadow-2xs transition-colors"
+                class="text-brand-600 font-semibold hover:underline flex items-center gap-1 text-[11px] cursor-pointer"
                 aria-label="Inspect Fleet Dashboard in 5K Fullscreen">
                 <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i>
                 <span>5K Fullscreen</span>
@@ -435,20 +352,20 @@
             <img src="assets/images/dashboard-retina-master.png" alt="Hisaab Fleet Compliance OS Production Dashboard overview screen"
               class="w-full h-auto object-contain rounded-lg zoom-trigger border border-hairline shadow-2xs">
             
-            <!-- Hover Affordance Pill -->
-            <div class="absolute bottom-6 right-6 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-ink/90 hover:bg-ink text-white text-xs font-semibold shadow-float cursor-pointer transition-all backdrop-blur-md group-hover:scale-105">
+            <!-- Hover Affordance -->
+            <div class="absolute bottom-6 right-6 z-20 flex items-center gap-2 px-3.5 py-2 rounded-full bg-ink/90 hover:bg-ink text-white text-xs font-semibold shadow-float cursor-pointer transition-colors backdrop-blur-xs">
               <i class="fa-solid fa-expand text-brand-400 text-xs" aria-hidden="true"></i>
-              <span>Inspect 5K Master</span>
+              <span>Click to Inspect 5K Master</span>
             </div>
           </div>
 
         </div>
 
         <!-- Crystal-Clear 1:1 Magnified Spotlight Callout (100% Readable Text & Numbers) -->
-        <div class="max-w-6xl mx-auto rounded-card border border-brand-200 bg-brand-50/50 p-5 sm:p-6 space-y-3 shadow-xs">
+        <div class="max-w-6xl mx-auto rounded-card border border-brand-200 bg-brand-50/50 p-5 sm:p-6 space-y-3">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div class="flex items-center gap-2">
-              <span class="px-2.5 py-0.5 rounded-full bg-brand-600 text-white font-mono text-[10px] font-bold uppercase tracking-wider">100% Native Scale Spotlight</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-brand-600 text-white font-mono text-[10px] font-bold uppercase">100% Native Scale Spotlight</span>
               <span class="text-xs font-bold text-ink">Executive Triage Metric Cards</span>
             </div>
             <span class="text-[11px] font-mono text-dim">Actual Production Interface Detail</span>
@@ -1284,182 +1201,96 @@
     </section>
 
     <!-- =============================================================================
-         CHAPTER 04: TOKENIZED DESIGN SYSTEM & INTERACTIVE SPECIMEN
+         CHAPTER 04: TOKENIZED DESIGN SYSTEM SPECIMEN (DESIGN.MD TOKENS)
          ============================================================================= -->
-    <section id="design-system" aria-labelledby="heading-design-system" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <section id="design-system" aria-labelledby="heading-design-system" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Section Header -->
       <div class="border-b border-hairline pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
         <div>
-          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600">Enterprise Design System</span>
-          <h2 id="heading-design-system" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">Design Tokens, Component States & 8 Status Badges</h2>
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600">Design System</span>
+          <h2 id="heading-design-system" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">Design Tokens, Market Sans & 8 Status Pills</h2>
         </div>
-        <span class="text-xs font-mono text-dim">DESIGN.md • 16-18px Radii • 1 Cobalt Search CTA</span>
+        <span class="text-xs font-mono text-dim">DESIGN.md • 16px Tile Radius • 1 Cobalt Search CTA</span>
       </div>
 
       <!-- Specimen Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Palette Tokens Card (Interactive 1-Click Copy) -->
-        <div class="lg:col-span-4 p-6 rounded-card bg-white border border-hairline shadow-xs space-y-4">
-          <div class="flex items-center justify-between">
-            <h3 class="font-bold text-sm uppercase tracking-wider text-ink font-heading">1. Core Palette Tokens</h3>
-            <span class="text-[10px] font-mono text-dim">Click to Copy</span>
-          </div>
-
+        <!-- Palette Tokens Card -->
+        <div class="p-6 rounded-card bg-white border border-hairline shadow-xs space-y-4">
+          <h3 class="font-bold text-sm uppercase tracking-wider text-ink font-heading">1. Neutral Scale & Cobalt</h3>
           <div class="space-y-2 text-xs">
-            <button onclick="copyColorToken('#0968f6', 'Cobalt Primary')" class="w-full flex items-center justify-between p-2.5 rounded-xl bg-subtle hover:bg-brand-50 border border-hairline hover:border-brand-300 transition-colors cursor-pointer text-left group">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-full bg-brand-600 shadow-2xs group-hover:scale-110 transition-transform inline-block" aria-hidden="true"></span>
-                <div>
-                  <strong class="font-bold text-ink block text-xs">Cobalt Primary</strong>
-                  <span class="text-[10px] text-dim">Search CTA & Highlights</span>
-                </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-canvas border border-hairline inline-block" aria-hidden="true"></span>
+                <span class="font-bold text-ink">Canvas Surface</span>
               </div>
-              <span class="font-mono text-[11px] text-brand-600 font-bold">#0968f6</span>
-            </button>
-
-            <button onclick="copyColorToken('#111827', 'Ink Primary')" class="w-full flex items-center justify-between p-2.5 rounded-xl bg-subtle hover:bg-neutral-100 border border-hairline hover:border-neutral-400 transition-colors cursor-pointer text-left group">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-full bg-ink shadow-2xs group-hover:scale-110 transition-transform inline-block" aria-hidden="true"></span>
-                <div>
-                  <strong class="font-bold text-ink block text-xs">Ink Typography</strong>
-                  <span class="text-[10px] text-dim">Primary Headings</span>
-                </div>
+              <span class="font-mono text-dim">#ffffff</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-ink inline-block" aria-hidden="true"></span>
+                <span class="font-bold text-ink">Ink Typography</span>
               </div>
-              <span class="font-mono text-[11px] text-dim">#111827</span>
-            </button>
-
-            <button onclick="copyColorToken('#ffffff', 'Canvas Surface')" class="w-full flex items-center justify-between p-2.5 rounded-xl bg-subtle hover:bg-white border border-hairline transition-colors cursor-pointer text-left group">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-full bg-white border border-hairline shadow-2xs group-hover:scale-110 transition-transform inline-block" aria-hidden="true"></span>
-                <div>
-                  <strong class="font-bold text-ink block text-xs">Pure Canvas</strong>
-                  <span class="text-[10px] text-dim">Card Floors</span>
-                </div>
+              <span class="font-mono text-dim">#191919</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-brand-600 inline-block" aria-hidden="true"></span>
+                <span class="font-bold text-ink">Cobalt Primary CTA</span>
               </div>
-              <span class="font-mono text-[11px] text-dim">#ffffff</span>
-            </button>
-
-            <button onclick="copyColorToken('#e5e7eb', 'Hairline Gray')" class="w-full flex items-center justify-between p-2.5 rounded-xl bg-subtle hover:bg-neutral-100 border border-hairline transition-colors cursor-pointer text-left group">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-full bg-[#e5e7eb] shadow-2xs group-hover:scale-110 transition-transform inline-block" aria-hidden="true"></span>
-                <div>
-                  <strong class="font-bold text-ink block text-xs">Hairline Gray</strong>
-                  <span class="text-[10px] text-dim">1px Precision Dividers</span>
-                </div>
+              <span class="font-mono text-brand-600 font-bold">#0968f6</span>
+            </div>
+            <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-hairline inline-block" aria-hidden="true"></span>
+                <span class="font-bold text-ink">Hairline Border</span>
               </div>
-              <span class="font-mono text-[11px] text-dim">#e5e7eb</span>
-            </button>
+              <span class="font-mono text-dim">#e5e5e5</span>
+            </div>
           </div>
         </div>
 
-        <!-- Component States Matrix Card (ui-designer & creative-coder) -->
-        <div class="lg:col-span-8 p-6 rounded-card bg-white border border-hairline shadow-xs space-y-4">
+        <!-- 8 Status Pills Card -->
+        <div class="p-6 rounded-card bg-white border border-hairline shadow-xs space-y-4 md:col-span-2">
           <div class="flex items-center justify-between">
-            <h3 class="font-bold text-sm uppercase tracking-wider text-ink font-heading">2. Interactive Component State Matrix (Primary Action CTA)</h3>
-            <span class="text-[10px] font-mono text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full border border-brand-200">ui-designer standard</span>
-          </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs">
-            
-            <!-- Normal -->
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-2 flex flex-col justify-between">
-              <span class="font-mono text-[10px] text-dim font-bold uppercase">1. Rest / Normal</span>
-              <button class="px-4 py-2 rounded-full bg-brand-600 text-white font-bold text-xs shadow-xs pointer-events-none">
-                Search Fines
-              </button>
-              <span class="text-[10px] text-dim">#0968f6 • 44px pill</span>
-            </div>
-
-            <!-- Hover -->
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-2 flex flex-col justify-between">
-              <span class="font-mono text-[10px] text-dim font-bold uppercase">2. Hover State</span>
-              <button class="px-4 py-2 rounded-full bg-[#0756cc] text-white font-bold text-xs shadow-glow-cobalt -translate-y-0.5 pointer-events-none transition-all">
-                Search Fines
-              </button>
-              <span class="text-[10px] text-dim">#0756cc • -1px elevation</span>
-            </div>
-
-            <!-- Active / Pressed -->
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-2 flex flex-col justify-between">
-              <span class="font-mono text-[10px] text-dim font-bold uppercase">3. Pressed State</span>
-              <button class="px-4 py-2 rounded-full bg-[#0544a3] text-white font-bold text-xs scale-95 pointer-events-none transition-all">
-                Search Fines
-              </button>
-              <span class="text-[10px] text-dim">#0544a3 • scale 0.95</span>
-            </div>
-
-            <!-- Focus-Visible -->
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-2 flex flex-col justify-between">
-              <span class="font-mono text-[10px] text-dim font-bold uppercase">4. Focus-Visible</span>
-              <button class="px-4 py-2 rounded-full bg-brand-600 text-white font-bold text-xs outline-2 outline-offset-2 outline-brand-600 pointer-events-none">
-                Search Fines
-              </button>
-              <span class="text-[10px] text-dim">2px offset cobalt ring</span>
-            </div>
-
-            <!-- Loading -->
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-2 flex flex-col justify-between">
-              <span class="font-mono text-[10px] text-dim font-bold uppercase">5. Loading State</span>
-              <button class="px-4 py-2 rounded-full bg-brand-600/85 text-white font-bold text-xs flex items-center justify-center gap-1.5 pointer-events-none">
-                <i class="fa-solid fa-spinner animate-spin text-[10px]" aria-hidden="true"></i>
-                <span>Verifying...</span>
-              </button>
-              <span class="text-[10px] text-dim">Spinner • opacity 0.85</span>
-            </div>
-
-            <!-- Disabled -->
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-2 flex flex-col justify-between">
-              <span class="font-mono text-[10px] text-dim font-bold uppercase">6. Disabled State</span>
-              <button class="px-4 py-2 rounded-full bg-neutral-200 text-neutral-400 font-bold text-xs cursor-not-allowed pointer-events-none">
-                Search Fines
-              </button>
-              <span class="text-[10px] text-dim">#e5e7eb • not-allowed</span>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- 8 Status Pills Card (Deterministic Semantic Taxonomy) -->
-        <div class="lg:col-span-12 p-6 rounded-card bg-white border border-hairline shadow-xs space-y-4">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <h3 class="font-bold text-sm uppercase tracking-wider text-ink font-heading">3. The 8 Deterministic Status Tokens (High-Contrast WCAG AA Compliance)</h3>
-            <span class="text-[11px] font-mono text-dim">Contrast ratio &ge; 4.5:1 verified across all states</span>
+            <h3 class="font-bold text-sm uppercase tracking-wider text-ink font-heading">2. The 8 Deterministic Status Tokens</h3>
+            <span class="text-[11px] font-mono text-dim">Strict Semantic Governance</span>
           </div>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-red-300 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-red-50 text-red-700 border border-red-200">UNASSIGNED</span>
-              <p class="text-[10px] text-dim">Fresh VAHAN ticket requiring driver attribution</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-red-50 text-red-700 border border-red-200">UNASSIGNED</span>
+              <p class="text-[10px] text-dim">Awaiting human assignment</p>
             </div>
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-amber-300 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-50 text-amber-700 border border-amber-200">ASSIGNED</span>
-              <p class="text-[10px] text-dim">Attributed with Clause 7.2 verified; awaiting settlement</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-amber-50 text-amber-700 border border-amber-200">ASSIGNED</span>
+              <p class="text-[10px] text-dim">Attributed, awaiting payment</p>
             </div>
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-emerald-300 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">PAID & CLOSED</span>
-              <p class="text-[10px] text-dim">RTO gateway cleared with official government receipt</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">PAID & CLOSED</span>
+              <p class="text-[10px] text-dim">RTO cleared with receipt</p>
             </div>
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-slate-300 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-slate-100 text-slate-800 border border-slate-300">DISPUTED</span>
-              <p class="text-[10px] text-dim">Telematics evidence packet submitted to Virtual Court</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-slate-100 text-slate-800 border border-slate-300">DISPUTED</span>
+              <p class="text-[10px] text-dim">Contested with evidence</p>
             </div>
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-brand-300 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-brand-50 text-brand-700 border border-brand-200">OVERDUE</span>
-              <p class="text-[10px] text-dim">&gt; 14 days, approaching digital court summons</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-brand-50 text-brand-700 border border-brand-200">OVERDUE</span>
+              <p class="text-[10px] text-dim">&gt; 14 days, compounding</p>
             </div>
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-neutral-500 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-neutral-900 text-white border border-neutral-800">COURT</span>
-              <p class="text-[10px] text-dim">Digital magistrate summons issued; fines doubled</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-slate-900 text-white border border-slate-800">COURT</span>
+              <p class="text-[10px] text-dim">Summons issued</p>
             </div>
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-emerald-300 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">RECOVERED</span>
-              <p class="text-[10px] text-dim">Capital recovered from driver payroll on cycle</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-emerald-100 text-emerald-800 border border-emerald-300">RECOVERED</span>
+              <p class="text-[10px] text-dim">Payroll deducted</p>
             </div>
-            <div class="p-3.5 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center hover:border-neutral-300 transition-colors">
-              <span class="inline-block px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-neutral-100 text-neutral-700 border border-neutral-300">AUTO-MATCH</span>
-              <p class="text-[10px] text-dim">Heuristic telemetry correlation &gt; 95% match</p>
+            <div class="p-3 rounded-xl bg-subtle border border-hairline space-y-1.5 text-center">
+              <span class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-slate-50 text-slate-600 border border-slate-200">AUTO-MATCH</span>
+              <p class="text-[10px] text-dim">Heuristic Clause match</p>
             </div>
           </div>
         </div>
@@ -1727,19 +1558,6 @@
         setTimeout(() => {
           toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
         }, 2800);
-      }
-    }
-
-    // Color Token 1-Click Copy (ui-designer & creative-coder)
-    function copyColorToken(hex, name) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(hex).then(() => {
-          showToast(`Copied ${name} (${hex}) to clipboard!`, 'fa-copy');
-        }).catch(() => {
-          showToast(`Color token: ${hex}`, 'fa-swatchbook');
-        });
-      } else {
-        showToast(`Color token: ${hex}`, 'fa-swatchbook');
       }
     }
 
