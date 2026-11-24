@@ -86,6 +86,22 @@
       background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(9, 104, 246, 0.07) 0%, rgba(255, 255, 255, 0) 80%), #ffffff;
     }
 
+    /* Accessible focus ring (accessibility-engineer) */
+    :focus-visible {
+      outline: 2px solid #0968f6 !important;
+      outline-offset: 2px !important;
+    }
+
+    /* Respect reduced motion preferences (creative-coder & accessibility-engineer) */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
     /* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
@@ -108,9 +124,10 @@
       image-rendering: crisp-edges;
     }
 
-    /* Zoom hover effect */
+    /* Hardware-accelerated zoom hover effect */
     .zoom-trigger {
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
     }
     .zoom-trigger:hover {
       transform: scale(1.004);
@@ -126,24 +143,30 @@
 
 <body class="selection:bg-brand-600 selection:text-white">
 
+  <!-- Accessible Skip to Content Link -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:rounded-full focus:shadow-float focus:font-bold focus:text-xs">
+    Skip to main content
+  </a>
+
   <!-- Toast Notification -->
-  <div id="toast"
+  <div id="toast" role="status" aria-live="polite"
     class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-[#191919] text-white px-4 py-2.5 rounded-full shadow-float flex items-center gap-2.5 text-xs font-medium">
-    <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400"></i>
+    <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400" aria-hidden="true"></i>
     <span id="toast-message">Action confirmed</span>
   </div>
 
   <!-- Top Reading Progress Hairline -->
-  <div id="reading-progress" class="fixed top-0 left-0 h-0.5 bg-brand-600 z-50 transition-all duration-100" style="width: 0%"></div>
+  <div id="reading-progress" class="fixed top-0 left-0 h-0.5 bg-brand-600 z-50 transition-all duration-100" style="width: 0%" aria-hidden="true"></div>
 
   <!-- Sticky Global Navigation Bar -->
   <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-hairline transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
 
       <!-- Left: Brand Lockup -->
-      <a href="#" class="flex items-center gap-3 group focus:outline-hidden">
+      <a href="#" class="flex items-center gap-3 group focus:outline-hidden" aria-label="Hisaab case study home">
         <div class="w-9 h-9 rounded-xl bg-ink p-1.5 border border-hairline shadow-2xs group-hover:border-ink transition-all flex items-center justify-center">
-          <img src="assets/images/challanos-logo.png" alt="Hisaab Logo" class="w-6 h-6 object-contain">
+          <img src="assets/images/challanos-logo.png" alt="Hisaab logo mark" class="w-6 h-6 object-contain">
         </div>
         <div class="flex flex-col">
           <span class="font-bold text-sm tracking-tight text-ink group-hover:text-brand-600 transition-colors">Hisaab</span>
@@ -152,7 +175,7 @@
       </a>
 
       <!-- Center: Situational Story Steps with Scroll Spy -->
-      <nav class="hidden xl:flex items-center gap-1 text-xs font-semibold text-dim">
+      <nav class="hidden xl:flex items-center gap-1 text-xs font-semibold text-dim" aria-label="Case Study Navigation">
         <a href="#hero-showcase" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">Overview</a>
         <a href="#highway-reality" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">The Problem</a>
         <a href="#situation-triage" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">01. Triage</a>
@@ -166,39 +189,40 @@
 
       <!-- Right: Action Buttons -->
       <div class="flex items-center gap-2.5">
-        <button onclick="openQuickJump()"
+        <button onclick="openQuickJump()" aria-label="Search sections or features (Shortcut: Command K)"
           class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-hairline bg-subtle hover:bg-white text-xs font-medium text-dim hover:text-ink transition-all cursor-pointer">
-          <i class="fa-solid fa-magnifying-glass text-[11px]"></i>
+          <i class="fa-solid fa-magnifying-glass text-[11px]" aria-hidden="true"></i>
           <span>Search</span>
           <kbd class="font-mono text-[10px] bg-white px-1.5 py-0.5 rounded border border-hairline text-dim">⌘K</kbd>
         </button>
 
         <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer"
-          class="px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer">
+          class="px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+          aria-label="Launch Live App in new window">
           <span>Launch Live App</span>
-          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
         </a>
       </div>
     </div>
   </header>
 
-  <main class="space-y-16 sm:space-y-24 py-6 sm:py-10">
+  <main id="main-content" class="space-y-16 sm:space-y-24 py-6 sm:py-10">
 
     <!-- =============================================================================
          1. HERO SECTION & 30-60 SECONDS RECRUITER EXECUTIVE SNAPSHOT
          ============================================================================= -->
-    <section id="hero-showcase" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 hero-studio-canvas pt-4">
+    <section id="hero-showcase" aria-labelledby="heading-hero" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 hero-studio-canvas pt-4">
       
       <!-- Top Title Lockup -->
       <div class="space-y-4 max-w-4xl">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-subtle border border-hairline text-xs font-mono font-semibold text-dim">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
           <span>Lead Product Designer Case Study • Deepak Tiwari</span>
-          <span class="text-hairline">|</span>
+          <span class="text-hairline" aria-hidden="true">|</span>
           <span>Commercial Fleet & Lease Compliance</span>
         </div>
 
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink leading-[1.08]">
+        <h1 id="heading-hero" class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink leading-[1.08]">
           Hisaab: <span class="text-brand-600">Every challan, accounted for.</span>
         </h1>
 
@@ -224,7 +248,7 @@
           <!-- Card 1: The Bottleneck -->
           <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-red-600 font-mono font-bold text-[11px] uppercase">
-              <i class="fa-solid fa-triangle-exclamation"></i>
+              <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
               <span>1. The Core Bottleneck</span>
             </div>
             <strong class="font-bold text-ink block text-sm">Fines Attach to Plates, Not People</strong>
@@ -236,7 +260,7 @@
           <!-- Card 2: The Core Fix -->
           <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-brand-600 font-mono font-bold text-[11px] uppercase">
-              <i class="fa-solid fa-timeline"></i>
+              <i class="fa-solid fa-timeline" aria-hidden="true"></i>
               <span>2. Architectural Move</span>
             </div>
             <strong class="font-bold text-ink block text-sm">Temporal Custody Windows</strong>
@@ -248,7 +272,7 @@
           <!-- Card 3: The Treasury Win -->
           <div class="p-5 rounded-xl bg-white border border-hairline space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-amber-600 font-mono font-bold text-[11px] uppercase">
-              <i class="fa-solid fa-scale-balanced"></i>
+              <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
               <span>3. Business Innovation</span>
             </div>
             <strong class="font-bold text-ink block text-sm">Dual-Ledger Escrow</strong>
@@ -260,7 +284,7 @@
           <!-- Card 4: Measurable Impact -->
           <div class="p-5 rounded-xl bg-emerald-50/80 border border-emerald-300 space-y-2 shadow-2xs">
             <div class="flex items-center gap-1.5 text-emerald-800 font-mono font-bold text-[11px] uppercase">
-              <i class="fa-solid fa-circle-check"></i>
+              <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
               <span>4. Verified Impact</span>
             </div>
             <div class="space-y-1 text-ink font-bold text-xs">
@@ -293,20 +317,21 @@
           <!-- Studio Browser Chrome Header Bar -->
           <div class="bg-subtle px-4 py-3 border-b border-hairline flex items-center justify-between text-xs text-dim">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block" aria-hidden="true"></span>
               <span class="font-mono text-[11px] font-semibold text-ink ml-2">https://hisaab.fleetops.in/dashboard</span>
             </div>
 
             <div class="flex items-center gap-3">
               <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
                 <span>842 Commercial Assets Live</span>
               </span>
               <button onclick="openRetinaModal('assets/images/dashboard-retina-master.png', 'Hisaab Fleet Executive Dashboard (5K Ultra Retina)')"
-                class="text-brand-600 font-semibold hover:underline flex items-center gap-1 text-[11px] cursor-pointer">
-                <i class="fa-solid fa-expand text-[10px]"></i>
+                class="text-brand-600 font-semibold hover:underline flex items-center gap-1 text-[11px] cursor-pointer"
+                aria-label="Inspect Fleet Dashboard in 5K Fullscreen">
+                <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i>
                 <span>5K Fullscreen</span>
               </button>
             </div>
@@ -315,12 +340,12 @@
           <!-- Wide Screen Image (Uncrushed, Wide Aspect, Clean Visibility) -->
           <div class="relative bg-white cursor-pointer group flex items-center justify-center p-3 sm:p-5 overflow-hidden"
             onclick="openRetinaModal('assets/images/dashboard-retina-master.png', 'Hisaab Fleet Executive Dashboard (5K Ultra Retina)')">
-            <img src="assets/images/dashboard-retina-master.png" alt="Hisaab Fleet Compliance OS Production Dashboard"
+            <img src="assets/images/dashboard-retina-master.png" alt="Hisaab Fleet Compliance OS Production Dashboard overview screen"
               class="w-full h-auto object-contain rounded-lg zoom-trigger border border-hairline shadow-2xs">
             
             <!-- Hover Affordance -->
             <div class="absolute bottom-6 right-6 z-20 flex items-center gap-2 px-3.5 py-2 rounded-full bg-ink/90 hover:bg-ink text-white text-xs font-semibold shadow-float cursor-pointer transition-colors backdrop-blur-sm">
-              <i class="fa-solid fa-expand text-brand-400 text-xs"></i>
+              <i class="fa-solid fa-expand text-brand-400 text-xs" aria-hidden="true"></i>
               <span>Click to Inspect 5K Master</span>
             </div>
           </div>
@@ -337,10 +362,10 @@
             <span class="text-[11px] font-mono text-dim">Actual Production Interface Detail</span>
           </div>
 
-          <div class="rounded-xl border border-hairline overflow-hidden bg-white shadow-xs cursor-pointer group"
+          <div class="w-full overflow-x-auto rounded-xl border border-hairline bg-white shadow-xs cursor-pointer group"
             onclick="openRetinaModal('assets/images/crop-dashboard-cards.png', 'Executive Triage Metric Cards (100% Native Scale)')">
-            <img src="assets/images/crop-dashboard-cards.png" alt="Dashboard Triage Metric Cards at 100% Native Scale"
-              class="w-full object-contain">
+            <img src="assets/images/crop-dashboard-cards.png" alt="Dashboard Triage Metric Cards at 100% Native Scale showing 47 Unassigned Fines"
+              class="w-full min-w-[650px] object-contain">
           </div>
 
           <p class="text-xs text-body leading-relaxed">
@@ -354,13 +379,13 @@
     <!-- =============================================================================
          2. THE GROUND REALITY & OPERATIONAL CONFLICT
          ============================================================================= -->
-    <section id="highway-reality" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="highway-reality" aria-labelledby="heading-reality" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Section Header -->
       <div class="border-b border-hairline pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600">The Ground Reality</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">A Fine Attaches to a License Plate, Not a Person</h2>
+          <h2 id="heading-reality" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">A Fine Attaches to a License Plate, Not a Person</h2>
         </div>
         <span class="text-xs font-mono text-dim">National Highway NH-48 Telematics Case</span>
       </div>
@@ -371,7 +396,7 @@
         <!-- Card 1: Highway Transit -->
         <div class="rounded-card border border-hairline bg-white overflow-hidden shadow-xs flex flex-col">
           <div class="relative h-48 w-full overflow-hidden bg-slate-900">
-            <img src="assets/images/highway-toll-truck.jpg" alt="Commercial Fleet Highway Toll Transit" class="w-full h-full object-cover">
+            <img src="assets/images/highway-toll-truck.jpg" alt="Commercial Fleet Highway Toll Transit on NH-48" class="w-full h-full object-cover">
             <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/75 text-white text-[10px] font-mono font-bold backdrop-blur-xs">
               Phase 1: Transit
             </div>
@@ -387,7 +412,7 @@
         <!-- Card 2: Radar Trap Evidence -->
         <div class="rounded-card border border-hairline bg-white overflow-hidden shadow-xs flex flex-col">
           <div class="relative h-48 w-full overflow-hidden bg-slate-900">
-            <img src="assets/images/speed-camera-radar.jpg" alt="Police ANPR Speed Radar Camera Proof" class="w-full h-full object-cover">
+            <img src="assets/images/speed-camera-radar.jpg" alt="Police ANPR Speed Radar Camera photographic proof on highway gantry" class="w-full h-full object-cover">
             <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-red-600 text-white text-[10px] font-mono font-bold backdrop-blur-xs">
               Phase 2: Radar Violation
             </div>
@@ -403,7 +428,7 @@
         <!-- Card 3: Compounding Penalties -->
         <div class="rounded-card border border-hairline bg-white overflow-hidden shadow-xs flex flex-col">
           <div class="relative h-48 w-full overflow-hidden bg-slate-900">
-            <img src="assets/images/fleet-hero.jpg" alt="Commercial Fleet Operations Depot" class="w-full h-full object-cover">
+            <img src="assets/images/fleet-hero.jpg" alt="Commercial Fleet Operations Depot with inter-city transport trucks" class="w-full h-full object-cover">
             <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-amber-600 text-white text-[10px] font-mono font-bold backdrop-blur-xs">
               Phase 3: Legal Fracture
             </div>
@@ -447,7 +472,7 @@
     <!-- =============================================================================
          SITUATION 01: MONDAY MORNING TRIAGE (UNASSIGNED TICKET AVALANCHE)
          ============================================================================= -->
-    <section id="situation-triage" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="situation-triage" aria-labelledby="heading-situation-01" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Situation Banner -->
       <div class="rounded-card bg-brand-50/70 border border-brand-200 p-6 sm:p-8 space-y-3">
@@ -455,7 +480,7 @@
           <span class="px-2.5 py-0.5 rounded-full bg-brand-600 text-white font-mono text-[10px] font-bold uppercase">Situation 01</span>
           <span class="text-xs font-mono font-bold text-brand-700 uppercase">Operational Work Queue</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
+        <h2 id="heading-situation-01" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
           Monday Morning: 47 Fresh Tickets Arrive Overnight From Parivahan VAHAN
         </h2>
         <p class="text-sm text-body leading-relaxed max-w-4xl">
@@ -470,10 +495,11 @@
             <span class="text-xs font-mono font-bold text-brand-600 uppercase">Designed Screen 01 • Command Center</span>
             <h3 class="text-xl sm:text-2xl font-bold text-ink font-heading">Fleet Executive Work Queue & SLA Countdown</h3>
           </div>
-          <a href="https://dt019107.github.io/E-challan-Management-Portal/#dashboard" target="_blank"
-            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors">
+          <a href="https://dt019107.github.io/E-challan-Management-Portal/#dashboard" target="_blank" rel="noopener noreferrer"
+            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors"
+            aria-label="Test Screen 01 live in portal">
             <span>Test Live Screen</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -482,23 +508,23 @@
           onclick="openRetinaModal('assets/images/dashboard-retina-master.png', 'Screen 01: Fleet Command Center & Triage Queue (5K Retina)')">
           <div class="bg-subtle px-4 py-2.5 border-b border-hairline flex items-center justify-between text-xs text-dim">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block" aria-hidden="true"></span>
               <span class="font-mono text-[11px] font-semibold text-ink ml-2">https://hisaab.fleetops.in/dashboard</span>
             </div>
             <span class="text-brand-600 font-semibold group-hover:underline flex items-center gap-1">
-              <i class="fa-solid fa-expand text-[10px]"></i> 5K Retina Master • Click to Expand
+              <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i> 5K Retina Master • Click to Expand
             </span>
           </div>
-          <img src="assets/images/dashboard-retina-master.png" alt="Executive Fleet Command Center Screen" class="w-full object-contain">
+          <img src="assets/images/dashboard-retina-master.png" alt="Executive Fleet Command Center Screen in 5K resolution" class="w-full object-contain">
         </div>
 
         <!-- How the Design Resolves the Situation (Features in Context) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
           <div class="p-4 rounded-xl bg-subtle border border-hairline space-y-1.5">
             <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-[10px] font-bold">1</span>
+              <span class="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-[10px] font-bold" aria-hidden="true">1</span>
               <strong class="text-ink font-bold">Red "Unassigned" Card as Primary CTA</strong>
             </div>
             <p class="text-body leading-relaxed">Instead of hiding tickets inside sub-menus, the prominent red card immediately surfaces unassigned fines with an active 1-click triage shortcut.</p>
@@ -506,7 +532,7 @@
 
           <div class="p-4 rounded-xl bg-subtle border border-hairline space-y-1.5">
             <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold">2</span>
+              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold" aria-hidden="true">2</span>
               <strong class="text-ink font-bold">Parivahan Live Sync Health Stamp</strong>
             </div>
             <p class="text-body leading-relaxed">Displays exact time of last MoRTH poll. Eliminates operational doubt about whether fresh tickets have arrived.</p>
@@ -514,7 +540,7 @@
 
           <div class="p-4 rounded-xl bg-subtle border border-hairline space-y-1.5">
             <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-amber-600 text-white flex items-center justify-center text-[10px] font-bold">3</span>
+              <span class="w-5 h-5 rounded-full bg-amber-600 text-white flex items-center justify-center text-[10px] font-bold" aria-hidden="true">3</span>
               <strong class="text-ink font-bold">72-Hour Court Compounding Timer</strong>
             </div>
             <p class="text-body leading-relaxed">Visual countdown badges alert managers 72 hours before tickets transition to digital magistrate summons where fines double.</p>
@@ -538,7 +564,7 @@
     <!-- =============================================================================
          SITUATION 02: THE AMBIGUOUS RADAR VIOLATION & DRIVER ATTRIBUTION
          ============================================================================= -->
-    <section id="situation-attribution" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="situation-attribution" aria-labelledby="heading-situation-02" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Situation Banner -->
       <div class="rounded-card bg-brand-50/70 border border-brand-200 p-6 sm:p-8 space-y-3">
@@ -546,7 +572,7 @@
           <span class="px-2.5 py-0.5 rounded-full bg-brand-600 text-white font-mono text-[10px] font-bold uppercase">Situation 02</span>
           <span class="text-xs font-mono font-bold text-brand-700 uppercase">Evidence & Heuristic Attribution</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
+        <h2 id="heading-situation-02" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
           High-Speed Radar Clocks MH12 QR 2284 at 84 km/h: Who Was Driving?
         </h2>
         <p class="text-sm text-body leading-relaxed max-w-4xl">
@@ -561,10 +587,11 @@
             <span class="text-xs font-mono font-bold text-brand-600 uppercase">Designed Screen 02 • Attribution & Evidence</span>
             <h3 class="text-xl sm:text-2xl font-bold text-ink font-heading">Photographic Radar Evidence & Clause 7.2 Heuristic Match</h3>
           </div>
-          <a href="https://dt019107.github.io/E-challan-Management-Portal/#challans" target="_blank"
-            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors">
+          <a href="https://dt019107.github.io/E-challan-Management-Portal/#challans" target="_blank" rel="noopener noreferrer"
+            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors"
+            aria-label="Test Screen 02 live in portal">
             <span>Test Live Screen</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -573,16 +600,16 @@
           onclick="openRetinaModal('assets/images/challans-retina-master.png', 'Screen 02: Challan Directory & Attribution Queue (5K Retina)')">
           <div class="bg-subtle px-4 py-2.5 border-b border-hairline flex items-center justify-between text-xs text-dim">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block" aria-hidden="true"></span>
               <span class="font-mono text-[11px] font-semibold text-ink ml-2">https://dt019107.github.io/E-challan-Management-Portal/#challans</span>
             </div>
             <span class="text-brand-600 font-semibold flex items-center gap-1 group-hover:underline">
-              <i class="fa-solid fa-expand text-[10px]"></i> 5K Retina Master • Click to Expand
+              <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i> 5K Retina Master • Click to Expand
             </span>
           </div>
-          <img src="assets/images/challans-retina-master.png" alt="Challan Directory & AI Attribution Evidence (5K Retina)" class="w-full object-contain">
+          <img src="assets/images/challans-retina-master.png" alt="Challan Directory & AI Attribution Evidence Screen in 5K resolution" class="w-full object-contain">
         </div>
 
         <!-- Crystal-Clear 1:1 Magnified Spotlight: Radar Photo & Attribution Card -->
@@ -595,10 +622,10 @@
             <span class="text-[11px] font-mono text-dim">Click to Zoom 1:1</span>
           </div>
 
-          <div class="rounded-xl border border-hairline overflow-hidden bg-white shadow-xs cursor-pointer group"
+          <div class="w-full overflow-x-auto rounded-xl border border-hairline bg-white shadow-xs cursor-pointer group"
             onclick="openRetinaModal('assets/images/crop-challans-evidence.png', 'Challan Attribution Queue (100% Native Scale)')">
-            <img src="assets/images/crop-challans-evidence.png" alt="Challan Attribution Queue Detail at 100% Native Scale"
-              class="w-full object-contain">
+            <img src="assets/images/crop-challans-evidence.png" alt="Challan Attribution Queue Detail at 100% Native Scale showing Radar Evidence"
+              class="w-full min-w-[650px] object-contain">
           </div>
         </div>
 
@@ -610,10 +637,10 @@
             <div class="relative w-56 rounded-[32px] bg-[#1e293b] p-2 shadow-float border-2 border-slate-700 cursor-pointer group"
               onclick="openRetinaModal('assets/images/mobile-retina-driver.png', 'Hisaab Mobile Driver Interface (Retina)')">
               <div class="relative rounded-[24px] overflow-hidden bg-white">
-                <div class="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-black rounded-full z-30"></div>
-                <img src="assets/images/mobile-retina-driver.png" alt="Driver Mobile WhatsApp Interface" class="w-full h-auto object-cover max-h-[380px]">
+                <div class="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-16 h-3 bg-black rounded-full z-30" aria-hidden="true"></div>
+                <img src="assets/images/mobile-retina-driver.png" alt="Driver Mobile WhatsApp Alert with radar proof and 1-tap appeal link" class="w-full h-auto object-cover max-h-[380px]">
                 <div class="absolute inset-0 bg-ink/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1 backdrop-blur-2xs">
-                  <i class="fa-solid fa-expand"></i>
+                  <i class="fa-solid fa-expand" aria-hidden="true"></i>
                   <span>Inspect Mobile Flow</span>
                 </div>
               </div>
@@ -623,7 +650,7 @@
           <!-- Explaining the Feature in Context -->
           <div class="lg:col-span-8 space-y-3 text-xs">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-mono font-bold border border-emerald-200">
-              <i class="fa-solid fa-mobile-screen"></i> Driver Mobile Flow
+              <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Driver Mobile Flow
             </div>
             <h4 class="text-lg font-bold text-ink font-heading">
               “Suggest, Explain, Confirm” Heuristic Model + WhatsApp Driver Alert
@@ -658,7 +685,7 @@
     <!-- =============================================================================
          SITUATION 03: THE 4-DRIVER ROTATING HAUL & TEMPORAL CUSTODY
          ============================================================================= -->
-    <section id="situation-custody" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="situation-custody" aria-labelledby="heading-situation-03" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Situation Banner -->
       <div class="rounded-card bg-brand-50/70 border border-brand-200 p-6 sm:p-8 space-y-3">
@@ -666,7 +693,7 @@
           <span class="px-2.5 py-0.5 rounded-full bg-brand-600 text-white font-mono text-[10px] font-bold uppercase">Situation 03</span>
           <span class="text-xs font-mono font-bold text-brand-700 uppercase">Data Architecture & Long-Haul Trips</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
+        <h2 id="heading-situation-03" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
           Mumbai to Delhi in 48 Hours: 1 Truck Plate, 4 Rotating Shift Drivers
         </h2>
         <p class="text-sm text-body leading-relaxed max-w-4xl">
@@ -681,10 +708,11 @@
             <span class="text-xs font-mono font-bold text-brand-600 uppercase">Designed Screen 03 • Fleet Assets & Custody</span>
             <h3 class="text-xl sm:text-2xl font-bold text-ink font-heading">Vehicle Directory & Temporal Custody Timeline</h3>
           </div>
-          <a href="https://dt019107.github.io/E-challan-Management-Portal/#vehicles" target="_blank"
-            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors">
+          <a href="https://dt019107.github.io/E-challan-Management-Portal/#vehicles" target="_blank" rel="noopener noreferrer"
+            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors"
+            aria-label="Test Screen 03 live in portal">
             <span>Test Live Screen</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -693,16 +721,16 @@
           onclick="openRetinaModal('assets/images/vehicles-retina-master.png', 'Screen 03: Vehicle Fleet Directory (5K Retina)')">
           <div class="bg-subtle px-4 py-2.5 border-b border-hairline flex items-center justify-between text-xs text-dim">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block" aria-hidden="true"></span>
               <span class="font-mono text-[11px] font-semibold text-ink ml-2">https://dt019107.github.io/E-challan-Management-Portal/#vehicles</span>
             </div>
             <span class="text-brand-600 font-semibold flex items-center gap-1 group-hover:underline">
-              <i class="fa-solid fa-expand text-[10px]"></i> 5K Retina Master • Click to Expand
+              <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i> 5K Retina Master • Click to Expand
             </span>
           </div>
-          <img src="assets/images/vehicles-retina-master.png" alt="Vehicle Fleet Directory (5K Retina)" class="w-full object-contain">
+          <img src="assets/images/vehicles-retina-master.png" alt="Vehicle Fleet Directory Screen in 5K resolution" class="w-full object-contain">
         </div>
 
         <!-- Crystal-Clear 1:1 Magnified Spotlight: Custody Ribbon & Handover Logs -->
@@ -715,10 +743,10 @@
             <span class="text-[11px] font-mono text-dim">Click to Zoom 1:1</span>
           </div>
 
-          <div class="rounded-xl border border-hairline overflow-hidden bg-white shadow-xs cursor-pointer group"
+          <div class="w-full overflow-x-auto rounded-xl border border-hairline bg-white shadow-xs cursor-pointer group"
             onclick="openRetinaModal('assets/images/crop-vehicles-custody.png', 'Vehicle Custody Ribbon (100% Native Scale)')">
             <img src="assets/images/crop-vehicles-custody.png" alt="Vehicle Custody Ribbon Detail at 100% Native Scale"
-              class="w-full object-contain">
+              class="w-full min-w-[650px] object-contain">
           </div>
         </div>
 
@@ -726,7 +754,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
           <div class="md:col-span-1 space-y-3">
             <div class="rounded-xl border border-hairline overflow-hidden bg-slate-900 h-40">
-              <img src="assets/images/heavy-truck.jpg" alt="Commercial Fleet Vehicle Asset" class="w-full h-full object-cover">
+              <img src="assets/images/heavy-truck.jpg" alt="Commercial Fleet Vehicle Asset Tata Prima 4028.S" class="w-full h-full object-cover">
             </div>
             <div class="space-y-1 text-xs">
               <span class="font-mono text-dim block">ASSET ID: TRK-8821</span>
@@ -779,7 +807,7 @@
     <!-- =============================================================================
          SITUATION 04: THE WEATHER GLITCH & RADAR SENSOR ERROR (DISPUTES)
          ============================================================================= -->
-    <section id="situation-disputes" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="situation-disputes" aria-labelledby="heading-situation-04" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Situation Banner -->
       <div class="rounded-card bg-brand-50/70 border border-brand-200 p-6 sm:p-8 space-y-3">
@@ -787,7 +815,7 @@
           <span class="px-2.5 py-0.5 rounded-full bg-brand-600 text-white font-mono text-[10px] font-bold uppercase">Situation 04</span>
           <span class="text-xs font-mono font-bold text-brand-700 uppercase">Legal Appeal & Sensor Glitches</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
+        <h2 id="heading-situation-04" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
           Erroneous Radar Traps: Heavy Monsoon Rain & Glitched License Plate Crops
         </h2>
         <p class="text-sm text-body leading-relaxed max-w-4xl">
@@ -802,10 +830,11 @@
             <span class="text-xs font-mono font-bold text-brand-600 uppercase">Designed Screen 04 • Legal & Appeals</span>
             <h3 class="text-xl sm:text-2xl font-bold text-ink font-heading">Disputes Management & Virtual Court Compounding Appeals</h3>
           </div>
-          <a href="https://dt019107.github.io/E-challan-Management-Portal/#disputes" target="_blank"
-            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors">
+          <a href="https://dt019107.github.io/E-challan-Management-Portal/#disputes" target="_blank" rel="noopener noreferrer"
+            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors"
+            aria-label="Test Screen 04 live in portal">
             <span>Test Live Screen</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -814,16 +843,16 @@
           onclick="openRetinaModal('assets/images/disputes-retina-master.png', 'Screen 04: Disputes & Legal Appeals (5K Retina)')">
           <div class="bg-subtle px-4 py-2.5 border-b border-hairline flex items-center justify-between text-xs text-dim">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block" aria-hidden="true"></span>
               <span class="font-mono text-[11px] font-semibold text-ink ml-2">https://dt019107.github.io/E-challan-Management-Portal/#disputes</span>
             </div>
             <span class="text-brand-600 font-semibold flex items-center gap-1 group-hover:underline">
-              <i class="fa-solid fa-expand text-[10px]"></i> 5K Retina Master • Click to Expand
+              <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i> 5K Retina Master • Click to Expand
             </span>
           </div>
-          <img src="assets/images/disputes-retina-master.png" alt="Disputes & Legal Appeals (5K Retina)" class="w-full object-contain">
+          <img src="assets/images/disputes-retina-master.png" alt="Disputes & Legal Appeals Management Screen in 5K resolution" class="w-full object-contain">
         </div>
 
         <!-- Crystal-Clear 1:1 Magnified Spotlight: Disputes Appeal Docket -->
@@ -836,10 +865,10 @@
             <span class="text-[11px] font-mono text-dim">Click to Zoom 1:1</span>
           </div>
 
-          <div class="rounded-xl border border-hairline overflow-hidden bg-white shadow-xs cursor-pointer group"
+          <div class="w-full overflow-x-auto rounded-xl border border-hairline bg-white shadow-xs cursor-pointer group"
             onclick="openRetinaModal('assets/images/crop-disputes-appeal.png', 'Disputes Appeal Docket (100% Native Scale)')">
-            <img src="assets/images/crop-disputes-appeal.png" alt="Disputes Appeal Detail at 100% Native Scale"
-              class="w-full object-contain">
+            <img src="assets/images/crop-disputes-appeal.png" alt="Disputes Appeal Detail at 100% Native Scale showing Telematics Evidence"
+              class="w-full min-w-[650px] object-contain">
           </div>
         </div>
 
@@ -847,7 +876,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
           <div class="p-4 rounded-xl bg-subtle border border-hairline space-y-1.5">
             <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold">1</span>
+              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold" aria-hidden="true">1</span>
               <strong class="text-ink font-bold">Evidence Packet Assembler</strong>
             </div>
             <p class="text-body leading-relaxed">Cross-references telematics GPS coordinates and FASTag highway toll receipts to prove the truck was 80km away when the camera fired.</p>
@@ -855,7 +884,7 @@
 
           <div class="p-4 rounded-xl bg-subtle border border-hairline space-y-1.5">
             <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold">2</span>
+              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold" aria-hidden="true">2</span>
               <strong class="text-ink font-bold">Virtual Court Compounding Stay</strong>
             </div>
             <p class="text-body leading-relaxed">Generates official legal appeal docket submitted to the e-Courts portal to pause the 14-day late fee compounding clock.</p>
@@ -863,7 +892,7 @@
 
           <div class="p-4 rounded-xl bg-subtle border border-hairline space-y-1.5">
             <div class="flex items-center gap-2">
-              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold">3</span>
+              <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-[10px] font-bold" aria-hidden="true">3</span>
               <strong class="text-ink font-bold">Real-Time State Machine</strong>
             </div>
             <p class="text-body leading-relaxed">Tracks legal progression from "Contested" to "Dismissed by Magistrate", automatically updating accounting ledgers.</p>
@@ -887,7 +916,7 @@
     <!-- =============================================================================
          SITUATION 05: THE SETTLEMENT DEADLOCK & DUAL-LEDGER TREASURY
          ============================================================================= -->
-    <section id="situation-settlement" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="situation-settlement" aria-labelledby="heading-situation-05" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Situation Banner -->
       <div class="rounded-card bg-brand-50/70 border border-brand-200 p-6 sm:p-8 space-y-3">
@@ -895,7 +924,7 @@
           <span class="px-2.5 py-0.5 rounded-full bg-brand-600 text-white font-mono text-[10px] font-bold uppercase">Situation 05</span>
           <span class="text-xs font-mono font-bold text-brand-700 uppercase">Treasury Deadlock & RTO Impoundment</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
+        <h2 id="heading-situation-05" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink font-heading">
           The Deadlock: Finance Won't Pay Without Driver Cash; Drivers Don't Have ₹2,000 Liquid
         </h2>
         <p class="text-sm text-body leading-relaxed max-w-4xl">
@@ -910,10 +939,11 @@
             <span class="text-xs font-mono font-bold text-brand-600 uppercase">Designed Screen 05 • Settlement & Treasury</span>
             <h3 class="text-xl sm:text-2xl font-bold text-ink font-heading">Dual-Ledger Payments & Official Government Receipts</h3>
           </div>
-          <a href="https://dt019107.github.io/E-challan-Management-Portal/#payments" target="_blank"
-            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors">
+          <a href="https://dt019107.github.io/E-challan-Management-Portal/#payments" target="_blank" rel="noopener noreferrer"
+            class="px-4 py-2 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-600 text-xs font-bold flex items-center gap-1.5 transition-colors"
+            aria-label="Test Screen 05 live in portal">
             <span>Test Live Screen</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -922,16 +952,16 @@
           onclick="openRetinaModal('assets/images/payments-retina-master.png', 'Screen 05: Dual-Ledger Payments & Settlement (5K Retina)')">
           <div class="bg-subtle px-4 py-2.5 border-b border-hairline flex items-center justify-between text-xs text-dim">
             <div class="flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
-              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block" aria-hidden="true"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block" aria-hidden="true"></span>
               <span class="font-mono text-[11px] font-semibold text-ink ml-2">https://dt019107.github.io/E-challan-Management-Portal/#payments</span>
             </div>
             <span class="text-brand-600 font-semibold flex items-center gap-1 group-hover:underline">
-              <i class="fa-solid fa-expand text-[10px]"></i> 5K Retina Master • Click to Expand
+              <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i> 5K Retina Master • Click to Expand
             </span>
           </div>
-          <img src="assets/images/payments-retina-master.png" alt="Dual-Ledger Payments & Settlement (5K Retina)" class="w-full object-contain">
+          <img src="assets/images/payments-retina-master.png" alt="Dual-Ledger Payments & Settlement Screen in 5K resolution" class="w-full object-contain">
         </div>
 
         <!-- Crystal-Clear 1:1 Magnified Spotlight: Payments & Escrow Ledger -->
@@ -944,10 +974,10 @@
             <span class="text-[11px] font-mono text-dim">Click to Zoom 1:1</span>
           </div>
 
-          <div class="rounded-xl border border-hairline overflow-hidden bg-white shadow-xs cursor-pointer group"
+          <div class="w-full overflow-x-auto rounded-xl border border-hairline bg-white shadow-xs cursor-pointer group"
             onclick="openRetinaModal('assets/images/crop-payments-ledger.png', 'Dual-Ledger Payments (100% Native Scale)')">
-            <img src="assets/images/crop-payments-ledger.png" alt="Payments Ledger Detail at 100% Native Scale"
-              class="w-full object-contain">
+            <img src="assets/images/crop-payments-ledger.png" alt="Payments Ledger Detail at 100% Native Scale showing Government Receipts"
+              class="w-full min-w-[650px] object-contain">
           </div>
         </div>
 
@@ -956,7 +986,7 @@
           
           <div class="lg:col-span-6 space-y-3 text-xs">
             <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-50 text-brand-600 font-mono font-bold border border-brand-200">
-              <i class="fa-solid fa-tablet-screen-button"></i> Depot Yard Gate Triage
+              <i class="fa-solid fa-tablet-screen-button" aria-hidden="true"></i> Depot Yard Gate Triage
             </div>
             <h4 class="text-lg font-bold text-ink font-heading">
               Separation of Payer and Culprit (Dual-Ledger Escrow)
@@ -986,10 +1016,10 @@
               <div class="bg-white px-3 py-1.5 border-b border-hairline flex items-center justify-between text-[11px] text-dim">
                 <span class="font-mono font-semibold text-ink">Depot Gate Tablet Check</span>
                 <span class="text-brand-600 font-semibold group-hover:underline flex items-center gap-1">
-                  <i class="fa-solid fa-expand text-[10px]"></i> Zoom
+                  <i class="fa-solid fa-expand text-[10px]" aria-hidden="true"></i> Zoom
                 </span>
               </div>
-              <img src="assets/images/tablet-retina-dashboard.png" alt="Tablet Gate Dispatch View" class="w-full object-contain max-h-[240px]">
+              <img src="assets/images/tablet-retina-dashboard.png" alt="Tablet Gate Dispatch View showing RTO status clearance" class="w-full object-contain max-h-[240px]">
             </div>
           </div>
         </div>
@@ -1011,23 +1041,24 @@
     <!-- =============================================================================
          3. CHAPTER 03: LIVE INTERACTIVE APPLICATION EMBED (THE PROOF)
          ============================================================================= -->
-    <section id="live-portal" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <section id="live-portal" aria-labelledby="heading-portal" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
       
       <!-- Section Header -->
       <div class="border-b border-hairline pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-3">
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
             <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600">Interactive Production Embed</span>
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">Experience the Live Hisaab Portal</h2>
+          <h2 id="heading-portal" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">Experience the Live Hisaab Portal</h2>
           <p class="text-sm text-body mt-0.5">Fully functional, production-ready compliance web application. Click tabs below to navigate views directly inside this embed:</p>
         </div>
         <div class="flex items-center gap-2">
           <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer"
-            class="px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-xs flex items-center gap-2 transition-all">
+            class="px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold shadow-xs flex items-center gap-2 transition-all"
+            aria-label="Open portal in full browser window">
             <span>Open in Full Window</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -1039,31 +1070,31 @@
         <div class="bg-subtle px-4 py-3 border-b border-hairline flex flex-wrap items-center justify-between gap-3 text-xs">
           
           <!-- Mac Traffic Dots -->
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2" aria-hidden="true">
             <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
             <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
             <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
           </div>
 
-          <!-- Quick Navigation Route Tabs -->
-          <div class="flex flex-wrap items-center gap-1.5 font-medium">
-            <button onclick="switchPortalRoute('#dashboard')" id="tab-route-dashboard"
+          <!-- Quick Navigation Route Tabs (ARIA Tablist) -->
+          <div role="tablist" aria-label="Portal Live Views" class="flex flex-wrap items-center gap-1.5 font-medium">
+            <button role="tab" aria-selected="true" aria-controls="portal-iframe" onclick="switchPortalRoute('#dashboard')" id="tab-route-dashboard"
               class="portal-route-tab px-3 py-1 rounded-full bg-white text-brand-600 font-bold border border-brand-200 shadow-2xs cursor-pointer text-xs transition-all">
               Dashboard
             </button>
-            <button onclick="switchPortalRoute('#challans')" id="tab-route-challans"
+            <button role="tab" aria-selected="false" aria-controls="portal-iframe" onclick="switchPortalRoute('#challans')" id="tab-route-challans"
               class="portal-route-tab px-3 py-1 rounded-full text-dim hover:text-ink bg-transparent hover:bg-white cursor-pointer text-xs transition-all">
               Challans Queue
             </button>
-            <button onclick="switchPortalRoute('#vehicles')" id="tab-route-vehicles"
+            <button role="tab" aria-selected="false" aria-controls="portal-iframe" onclick="switchPortalRoute('#vehicles')" id="tab-route-vehicles"
               class="portal-route-tab px-3 py-1 rounded-full text-dim hover:text-ink bg-transparent hover:bg-white cursor-pointer text-xs transition-all">
               Vehicles
             </button>
-            <button onclick="switchPortalRoute('#payments')" id="tab-route-payments"
+            <button role="tab" aria-selected="false" aria-controls="portal-iframe" onclick="switchPortalRoute('#payments')" id="tab-route-payments"
               class="portal-route-tab px-3 py-1 rounded-full text-dim hover:text-ink bg-transparent hover:bg-white cursor-pointer text-xs transition-all">
               Payments
             </button>
-            <button onclick="switchPortalRoute('#disputes')" id="tab-route-disputes"
+            <button role="tab" aria-selected="false" aria-controls="portal-iframe" onclick="switchPortalRoute('#disputes')" id="tab-route-disputes"
               class="portal-route-tab px-3 py-1 rounded-full text-dim hover:text-ink bg-transparent hover:bg-white cursor-pointer text-xs transition-all">
               Disputes
             </button>
@@ -1071,11 +1102,11 @@
 
           <!-- Actions -->
           <div class="flex items-center gap-2 text-dim text-xs">
-            <button onclick="reloadPortalIframe()" class="hover:text-ink p-1 cursor-pointer" title="Reload Frame">
-              <i class="fa-solid fa-rotate-right"></i>
+            <button onclick="reloadPortalIframe()" class="hover:text-ink p-1 cursor-pointer" title="Reload Frame" aria-label="Reload live application frame">
+              <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
             </button>
-            <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" class="hover:text-ink p-1" title="New Tab">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer" class="hover:text-ink p-1" title="New Tab" aria-label="Open in new tab">
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -1092,13 +1123,13 @@
     <!-- =============================================================================
          CHAPTER 04: TOKENIZED DESIGN SYSTEM SPECIMEN (EBAY DESIGN SYSTEM)
          ============================================================================= -->
-    <section id="design-system" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="design-system" aria-labelledby="heading-design-system" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Section Header -->
       <div class="border-b border-hairline pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600">Design System</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">Design Tokens, Market Sans & 8 Status Pills</h2>
+          <h2 id="heading-design-system" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">Design Tokens, Market Sans & 8 Status Pills</h2>
         </div>
         <span class="text-xs font-mono text-dim">DESIGN.md • 16px Tile Radius • 1 Cobalt Search CTA</span>
       </div>
@@ -1112,28 +1143,28 @@
           <div class="space-y-2 text-xs">
             <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
               <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-canvas border border-hairline inline-block"></span>
+                <span class="w-6 h-6 rounded-full bg-canvas border border-hairline inline-block" aria-hidden="true"></span>
                 <span class="font-bold text-ink">Canvas Surface</span>
               </div>
               <span class="font-mono text-dim">#ffffff</span>
             </div>
             <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
               <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-ink inline-block"></span>
+                <span class="w-6 h-6 rounded-full bg-ink inline-block" aria-hidden="true"></span>
                 <span class="font-bold text-ink">Ink Typography</span>
               </div>
               <span class="font-mono text-dim">#191919</span>
             </div>
             <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
               <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-brand-600 inline-block"></span>
+                <span class="w-6 h-6 rounded-full bg-brand-600 inline-block" aria-hidden="true"></span>
                 <span class="font-bold text-ink">Cobalt Primary CTA</span>
               </div>
               <span class="font-mono text-brand-600 font-bold">#0968f6</span>
             </div>
             <div class="flex items-center justify-between p-2 rounded-lg bg-subtle border border-hairline">
               <div class="flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-hairline inline-block"></span>
+                <span class="w-6 h-6 rounded-full bg-hairline inline-block" aria-hidden="true"></span>
                 <span class="font-bold text-ink">Hairline Border</span>
               </div>
               <span class="font-mono text-dim">#e5e5e5</span>
@@ -1191,13 +1222,13 @@
     <!-- =============================================================================
          CHAPTER 05: 6-MINUTE LIVE PRESENTATION SCRIPT & ROADMAP
          ============================================================================= -->
-    <section id="walkthrough" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <section id="walkthrough" aria-labelledby="heading-walkthrough" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
       
       <!-- Section Header -->
       <div class="border-b border-hairline pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
         <div>
           <span class="text-xs font-mono font-bold uppercase tracking-wider text-brand-600">Portfolio Walkthrough</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">6-Minute Live Presentation Script</h2>
+          <h2 id="heading-walkthrough" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-ink">6-Minute Live Presentation Script</h2>
         </div>
         <span class="text-xs font-mono text-dim">Time-Stamped Recording Script • 0:00 to 5:45</span>
       </div>
@@ -1206,11 +1237,12 @@
       <div class="p-6 rounded-card bg-white border border-hairline shadow-xs overflow-hidden">
         <div class="overflow-x-auto text-xs">
           <table class="w-full text-left">
+            <caption class="sr-only">6-Minute Live Case Study Presentation Script Breakdown</caption>
             <thead class="bg-subtle text-ink font-bold border-b border-hairline uppercase tracking-wider text-[11px]">
               <tr>
-                <th class="px-4 py-3 w-20">Time</th>
-                <th class="px-4 py-3 w-56">Show</th>
-                <th class="px-4 py-3">Say</th>
+                <th scope="col" class="px-4 py-3 w-20">Time</th>
+                <th scope="col" class="px-4 py-3 w-56">Show</th>
+                <th scope="col" class="px-4 py-3">Say</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-hairline text-ink">
@@ -1269,15 +1301,16 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
           <div>
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-mono font-semibold uppercase tracking-wider mb-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400" aria-hidden="true"></span>
               <span>Project Conclusion</span>
             </div>
             <h3 class="text-2xl sm:text-3xl font-bold font-heading">“Every challan, accounted for.”</h3>
           </div>
-          <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank"
-            class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-xs transition-colors self-start sm:self-auto flex items-center gap-2">
+          <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer"
+            class="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs shadow-xs transition-colors self-start sm:self-auto flex items-center gap-2"
+            aria-label="Launch live Hisaab compliance portal">
             <span>Launch Live Portal</span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
           </a>
         </div>
 
@@ -1295,44 +1328,50 @@
   </main>
 
   <!-- =============================================================================
-       5K RETINA FULLSCREEN LIGHTBOX MODAL
+       5K RETINA FULLSCREEN LIGHTBOX MODAL (ACCESSIBLE WAI-ARIA DIALOG)
        ============================================================================= -->
-  <div id="modal-retina-viewer" class="fixed inset-0 z-50 bg-ink/85 backdrop-blur-md hidden items-center justify-center p-4">
+  <div id="modal-retina-viewer" role="dialog" aria-modal="true" aria-labelledby="modal-viewer-title"
+    class="fixed inset-0 z-50 bg-ink/85 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="bg-white rounded-card shadow-studio max-w-6xl w-full max-h-[94vh] flex flex-col overflow-hidden border border-hairline">
       
       <!-- Modal Header -->
       <div class="p-4 border-b border-hairline flex items-center justify-between text-xs bg-white">
         <div class="flex items-center gap-3">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-          <span id="modal-viewer-title" class="font-bold text-ink font-heading text-sm">Screen Inspector</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+          <h2 id="modal-viewer-title" class="font-bold text-ink font-heading text-sm">Screen Inspector</h2>
           <span class="font-mono text-[10px] px-2 py-0.5 rounded-full bg-brand-50 text-brand-600 border border-brand-200">5K Retina Master</span>
         </div>
         <div class="flex items-center gap-2">
-          <a id="modal-open-direct" href="#" target="_blank" class="px-3 py-1 rounded-lg bg-subtle hover:bg-hairline text-ink font-semibold text-xs flex items-center gap-1.5 transition-colors">
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          <a id="modal-open-direct" href="#" target="_blank" rel="noopener noreferrer"
+            class="px-3 py-1 rounded-lg bg-subtle hover:bg-hairline text-ink font-semibold text-xs flex items-center gap-1.5 transition-colors"
+            aria-label="Open original raw resolution image in new tab">
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
             <span>Open Raw Master</span>
           </a>
-          <button onclick="closeModal('modal-retina-viewer')" class="p-1.5 rounded-lg hover:bg-subtle text-dim hover:text-ink cursor-pointer transition-colors" title="Close (Esc)">
-            <i class="fa-solid fa-xmark text-lg"></i>
+          <button onclick="closeModal('modal-retina-viewer')" class="modal-close-btn p-1.5 rounded-lg hover:bg-subtle text-dim hover:text-ink cursor-pointer transition-colors"
+            aria-label="Close modal inspector">
+            <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
           </button>
         </div>
       </div>
 
       <!-- Modal Body (Crisp Scrollable View) -->
       <div class="p-4 sm:p-6 overflow-auto flex-1 bg-subtle flex items-center justify-center">
-        <img id="modal-viewer-img" src="" alt="Full Screen Inspection Master" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-xs">
+        <img id="modal-viewer-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Expanded inspection master image" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-xs">
       </div>
     </div>
   </div>
 
-  <!-- Quick Jump Spotlight (⌘K) Modal -->
-  <div id="quick-jump-modal" class="fixed inset-0 z-50 bg-ink/70 backdrop-blur-xs hidden items-center justify-center p-4">
+  <!-- Quick Jump Spotlight (⌘K) Modal (ACCESSIBLE WAI-ARIA DIALOG) -->
+  <div id="quick-jump-modal" role="dialog" aria-modal="true" aria-labelledby="quick-jump-label"
+    class="fixed inset-0 z-50 bg-ink/70 backdrop-blur-xs hidden items-center justify-center p-4">
     <div class="max-w-xl w-full bg-white rounded-card shadow-studio border border-hairline overflow-hidden flex flex-col">
       <div class="p-4 border-b border-hairline flex items-center gap-3">
-        <i class="fa-solid fa-magnifying-glass text-brand-600 text-sm"></i>
+        <i class="fa-solid fa-magnifying-glass text-brand-600 text-sm" aria-hidden="true"></i>
+        <label id="quick-jump-label" for="quick-jump-input" class="sr-only">Search case study sections or features</label>
         <input type="text" id="quick-jump-input" placeholder="Search situations, screens, or features..."
           class="w-full text-sm font-medium outline-hidden text-ink placeholder:text-dim" onkeyup="filterQuickJump(this.value)">
-        <button onclick="closeQuickJump()" class="text-dim hover:text-ink text-xs font-mono uppercase cursor-pointer">Esc</button>
+        <button onclick="closeQuickJump()" class="modal-close-btn text-dim hover:text-ink text-xs font-mono uppercase cursor-pointer" aria-label="Close search palette">Esc</button>
       </div>
       <div id="quick-jump-results" class="max-h-80 overflow-y-auto p-2 space-y-1 text-xs">
         <a href="#hero-showcase" onclick="closeQuickJump()" class="jump-item p-3 rounded-lg hover:bg-subtle flex items-center justify-between text-ink">
@@ -1380,6 +1419,9 @@
   </div>
 
   <script>
+    // State management for accessible focus restoration
+    let previouslyFocusedElement = null;
+
     // Reading Progress Bar & Scroll Spy
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop;
@@ -1415,8 +1457,10 @@
         document.querySelectorAll('.nav-link').forEach(link => {
           if (link.getAttribute('href') === '#' + currentSection) {
             link.classList.add('active');
+            link.setAttribute('aria-current', 'true');
           } else {
             link.classList.remove('active');
+            link.removeAttribute('aria-current');
           }
         });
       }
@@ -1437,14 +1481,13 @@
       }
     }
 
-    // Interactive Iframe Route Controller
+    // Interactive Iframe Route Controller (ARIA Tab Support)
     function switchPortalRoute(hash) {
       const iframe = document.getElementById('portal-iframe');
       if (iframe) {
         iframe.src = 'https://dt019107.github.io/E-challan-Management-Portal/' + hash;
       }
       
-      // Update Tab Styles
       const tabMap = {
         '#dashboard': 'tab-route-dashboard',
         '#challans': 'tab-route-challans',
@@ -1455,12 +1498,14 @@
 
       document.querySelectorAll('.portal-route-tab').forEach(tab => {
         tab.className = 'portal-route-tab px-3 py-1 rounded-full text-dim hover:text-ink bg-transparent hover:bg-white cursor-pointer text-xs transition-all';
+        tab.setAttribute('aria-selected', 'false');
       });
 
       const activeTabId = tabMap[hash];
       const activeTab = document.getElementById(activeTabId);
       if (activeTab) {
         activeTab.className = 'portal-route-tab px-3 py-1 rounded-full bg-white text-brand-600 font-bold border border-brand-200 shadow-2xs cursor-pointer text-xs transition-all';
+        activeTab.setAttribute('aria-selected', 'true');
       }
 
       showToast(`Navigated live app to ${hash.replace('#', '').toUpperCase()}`, 'fa-window-restore');
@@ -1489,13 +1534,20 @@
       }
     }
 
-    // Modal Controller
+    // Modal Controller with Focus Trap & Restoration (accessibility-engineer)
     function openModal(id) {
       const m = document.getElementById(id);
       if (m) {
+        previouslyFocusedElement = document.activeElement;
         m.classList.remove('hidden');
         m.classList.add('flex');
         document.body.style.overflow = 'hidden';
+
+        // Focus first interactive element in modal
+        const focusable = m.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length) {
+          setTimeout(() => focusable[0].focus(), 50);
+        }
       }
     }
 
@@ -1505,6 +1557,26 @@
         m.classList.add('hidden');
         m.classList.remove('flex');
         document.body.style.overflow = '';
+        if (previouslyFocusedElement) {
+          previouslyFocusedElement.focus();
+          previouslyFocusedElement = null;
+        }
+      }
+    }
+
+    // Focus Trap function for open dialogs
+    function trapFocusInDialog(dialog, e) {
+      const focusable = dialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     }
 
@@ -1531,15 +1603,26 @@
       });
     }
 
-    // Keyboard Shortcuts
+    // Global Keyboard Shortcuts (accessibility-engineer & creative-coder)
     window.addEventListener('keydown', (e) => {
+      // Command/Ctrl + K opens search
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         openQuickJump();
       }
+
+      // Escape closes open dialogs
       if (e.key === 'Escape') {
         closeQuickJump();
         closeModal('modal-retina-viewer');
+      }
+
+      // Tab trap inside active modals
+      if (e.key === 'Tab') {
+        const activeModal = document.querySelector('#modal-retina-viewer.flex, #quick-jump-modal.flex');
+        if (activeModal) {
+          trapFocusInDialog(activeModal, e);
+        }
       }
     });
   </script>

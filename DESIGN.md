@@ -482,9 +482,64 @@ There is no 4-8px tight-corner tier on product surfaces. The choice softens what
 
 **Don't** swap Market Sans for a generic geometric sans like Poppins or DM Sans. The slightly-narrow humanist proportions of Market Sans are part of the marketplace's identity; geometric replacements feel borrowed from fintech and read wrong at the 12-14px tier where the marketplace lives.
 
+## Component Interactive States & Behavioral Specifications
+
+Per `ui-designer` design system standards, every core interactive surface implements deterministic multi-state behaviors:
+
+### 1. Primary Action Button (`button-search` / Cobalt CTAs)
+- **Normal (Rest):** Background `{colors.primary}` (#0968f6), text `{colors.canvas}` (#ffffff), border none, `{rounded.pill}` (44px), height 40-44px, font Market Sans 14px/700, elevation none.
+- **Hover:** Background `#0756cc` (8% darkening state layer overlay), cursor pointer, transform translateY(-1px), shadow `0 2px 8px rgba(9, 104, 246, 0.25)`. Transition `150ms cubic-bezier(0.16, 1, 0.3, 1)`.
+- **Active (Pressed):** Background `#0544a3` (16% state layer), transform translateY(0) scale(0.98), shadow `none`.
+- **Focus-Visible:** Outline `2px solid {colors.primary}` (#0968f6), `outline-offset: 2px`, browser default outline suppressed.
+- **Disabled:** Background `{colors.surface-1}` (#e5e5e5), text `{colors.ink-faint}` (#707070), cursor `not-allowed`, opacity `0.6`, pointer-events `none`.
+- **Loading:** Background `{colors.primary}` (#0968f6), opacity `0.85`, cursor `wait`, text hidden or replaced with 16px CSS spinner (`border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite`).
+
+### 2. Status Pills & Badges (Deterministic 8-State Taxonomy)
+Every status indicator preserves a 4.5:1 minimum contrast ratio with both background tint and high-contrast text:
+1. **Paid / Resolved (Emerald):** BG `rgba(16, 185, 129, 0.12)`, text `#065f46`, border `1px solid rgba(16, 185, 129, 0.3)`.
+2. **Overdue / Critical (Ruby):** BG `rgba(239, 68, 68, 0.12)`, text `#991b1b`, border `1px solid rgba(239, 68, 68, 0.3)`.
+3. **Disputed / Appeal (Amber):** BG `rgba(245, 158, 11, 0.12)`, text `#92400e`, border `1px solid rgba(245, 158, 11, 0.3)`.
+4. **Impounded / Seized (Indigo):** BG `rgba(99, 102, 241, 0.12)`, text `#3730a3`, border `1px solid rgba(99, 102, 241, 0.3)`.
+5. **Active / In-Review (Cobalt):** BG `rgba(9, 104, 246, 0.12)`, text `#0756cc`, border `1px solid rgba(9, 104, 246, 0.3)`.
+6. **Pending / Scheduled (Zinc/Slate):** BG `rgba(100, 116, 139, 0.12)`, text `#334155`, border `1px solid rgba(100, 116, 139, 0.3)`.
+7. **Warning / Expiring (Orange):** BG `rgba(249, 115, 22, 0.12)`, text `#9a3412`, border `1px solid rgba(249, 115, 22, 0.3)`.
+8. **Info / Neutral (Gray):** BG `{colors.surface-1}` (#e5e5e5), text `{colors.ink}` (#191919), border `1px solid {colors.hairline}` (#c7c7c7).
+
+### 3. Form Inputs & Search Pill (`search-input`, `text-input`)
+- **Rest:** Background `#ffffff`, border `1px solid {colors.ink}` (#191919), text `{colors.ink}` (#191919), placeholder `{colors.ink-faint}` (#707070), `{rounded.pill}` 44px radius.
+- **Hover:** Border `1px solid {colors.primary}` (#0968f6), background `#ffffff`.
+- **Focus / Active:** Border `1.5px solid {colors.primary}` (#0968f6), box-shadow `0 0 0 3px rgba(9, 104, 246, 0.15)`, outline `none`.
+- **Error / Invalid:** Border `1.5px solid #dc2626`, box-shadow `0 0 0 3px rgba(220, 38, 38, 0.15)`, inline error message in 12px red below input with `role="alert"`.
+- **Disabled:** Background `{colors.surface-1}` (#e5e5e5), border `1px solid {colors.hairline}` (#c7c7c7), text `{colors.ink-faint}` (#707070), cursor `not-allowed`.
+
+### 4. Data Tables & Record Cards (`card`, `product-tile`)
+- **Rest:** Background `#ffffff`, border `1px solid {colors.surface-1}` (#e5e5e5), radius `{rounded.md}` (16px), transition `all 150ms ease`.
+- **Hover (Interactive row/card):** Background `#fbfbfb`, border `1px solid {colors.hairline}` (#c7c7c7), box-shadow `0 4px 12px rgba(0, 0, 0, 0.05)`.
+- **Selected / Focused:** Background `rgba(9, 104, 246, 0.04)`, border `1px solid {colors.primary}` (#0968f6).
+- **Empty State:** Centered container with 48px muted iconography, bold heading (`typography.heading-sm`), descriptive guidance in `{colors.ink-muted}`, and clear primary recovery CTA (e.g. "Create Record" or "Reset Filter").
+- **Loading Skeleton:** Pulsing background `linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)`, background-size `200% 100%`, animation `skeleton-shimmer 1.5s infinite`, matching exact block heights to prevent layout cumulative shifts (CLS = 0).
+
+---
+
+## Usability Psychology & Cognitive Ergonomics Guidelines
+
+Per `usability-psychologist` standards:
+1. **Cognitive Load Minimization (Miller's & Hick's Law):**
+   - Tables and filter bars are partitioned into maximum 5-7 actionable clusters.
+   - Primary actions always maintain highest visual luminance (`#0968f6`), secondary actions are stroked neutral, tertiary actions are text links.
+2. **Error Prevention & Immediate Feedback:**
+   - Destructive actions (e.g. reject appeal, cancel challan) require explicit double-step confirmation modals with high-contrast warning cues.
+   - Micro-UX feedback occurs within <100ms for state acknowledgment, preventing rage clicks.
+3. **Accessibility & Vestibular Respect:**
+   - All interactive controls strictly support keyboard tab traversal and visible focus rings.
+   - All animations automatically disable for users with `prefers-reduced-motion: reduce`.
+   - Modals trap focus during activation and restore focus to trigger upon dismissal.
+
+---
+
 ## Known Gaps
 
-- **Hover and focus states:** the state-layer overlay system (`--color-state-layer-hover`, `--color-state-layer-pressed`, `--color-state-layer-focus`) is declared but the specific applied opacity values are not exposed on the captured marketing surface.
+- **Hover and focus states:** State layer values are now formalized above with specific opacity, scale, and focus rings.
 - **Dark mode:** the captured surface is light-only. The expressive theme defines `--expressive-theme-neutral-dark-background` (mapped to ink #191919) suggesting a dark variant exists in the design-system source, but the marketing site renders light-only.
 - **Localized currency formatting:** price typography is captured at USD only. The system likely has per-locale price-label variants (€, £, ¥, etc.) but only the USD strikethrough pattern appears in the captured surface.
 - **Motion:** the page has minimal captured animation — no scroll-driven motion, no hero entrance, no carousel auto-advance. The product-grid rows scroll horizontally on hover but the transition curve is not exposed.
