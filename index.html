@@ -164,26 +164,75 @@
           <img src="assets/images/challanos-logo.png" alt="Hisaab logo mark" class="w-6 h-6 object-contain">
         </div>
         <div class="flex flex-col">
-          <span class="font-bold text-sm tracking-tight text-ink group-hover:text-brand-600 transition-colors">Hisaab</span>
-          <span class="text-[11px] font-mono text-dim leading-none">ChallanOS Case Study</span>
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-sm tracking-tight text-ink group-hover:text-brand-600 transition-colors">Hisaab</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-medium bg-subtle text-dim border border-hairline leading-none">v2.4</span>
+          </div>
+          <span class="text-[11px] font-mono text-dim leading-none">Fleet Challan OS</span>
         </div>
       </a>
 
-      <!-- Center: Situational Story Steps with Scroll Spy -->
-      <nav class="hidden xl:flex items-center gap-1 text-xs font-semibold text-dim" aria-label="Case Study Navigation">
-        <a href="#hero-showcase" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">Overview</a>
-        <a href="#highway-reality" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">The Problem</a>
-        <a href="#situation-triage" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">01. Triage</a>
-        <a href="#situation-attribution" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">02. Attribution</a>
-        <a href="#situation-custody" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">03. Custody</a>
-        <a href="#situation-disputes" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">04. Disputes</a>
-        <a href="#situation-settlement" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">05. Settlement</a>
-        <a href="#live-portal" class="nav-link px-2.5 py-1.5 rounded-lg text-brand-600 bg-brand-50 hover:bg-brand-100 transition-colors">Live App</a>
-        <a href="#design-system" class="nav-link px-2.5 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">Tokens</a>
+      <!-- Center: Streamlined Studio Navigation with Scroll Spy & Workflows Dropdown -->
+      <nav class="hidden lg:flex items-center gap-1 text-xs font-semibold text-dim" aria-label="Case Study Navigation">
+        <a href="#hero-showcase" id="nav-hero-showcase" class="nav-link px-3 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">Overview</a>
+        <a href="#highway-reality" id="nav-highway-reality" class="nav-link px-3 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">The Crisis</a>
+
+        <!-- Workflows Popover Menu -->
+        <div class="relative group" id="workflows-dropdown-container">
+          <button type="button" id="nav-workflows-btn" class="nav-link flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors cursor-pointer"
+            aria-expanded="false" aria-haspopup="true" aria-label="Workflows menu">
+            <span>Workflows</span>
+            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
+          </button>
+
+          <!-- Floating Dropdown Panel -->
+          <div id="workflows-dropdown-menu"
+            class="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 w-72 bg-white/95 backdrop-blur-md rounded-xl border border-hairline shadow-card p-2 hidden group-hover:block transition-all z-50">
+            <div class="px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-dim">5 Core Fleet Workflows</div>
+            <a href="#situation-triage" class="workflow-sublink flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs text-ink hover:bg-subtle transition-colors">
+              <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">01</span>
+              <div class="flex flex-col">
+                <span class="font-semibold leading-tight">Fleet Bulk Triage</span>
+                <span class="text-[10px] text-dim">Intake & sorting pipeline</span>
+              </div>
+            </a>
+            <a href="#situation-attribution" class="workflow-sublink flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs text-ink hover:bg-subtle transition-colors">
+              <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">02</span>
+              <div class="flex flex-col">
+                <span class="font-semibold leading-tight">Driver Attribution</span>
+                <span class="text-[10px] text-dim">Telemetry & shift matching</span>
+              </div>
+            </a>
+            <a href="#situation-custody" class="workflow-sublink flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs text-ink hover:bg-subtle transition-colors">
+              <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">03</span>
+              <div class="flex flex-col">
+                <span class="font-semibold leading-tight">Custody Transfer</span>
+                <span class="text-[10px] text-dim">Gate pass & lease handover</span>
+              </div>
+            </a>
+            <a href="#situation-disputes" class="workflow-sublink flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs text-ink hover:bg-subtle transition-colors">
+              <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">04</span>
+              <div class="flex flex-col">
+                <span class="font-semibold leading-tight">Legal Dispute Desk</span>
+                <span class="text-[10px] text-dim">Virtual court & evidence pack</span>
+              </div>
+            </a>
+            <a href="#situation-settlement" class="workflow-sublink flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-xs text-ink hover:bg-subtle transition-colors">
+              <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center shrink-0">05</span>
+              <div class="flex flex-col">
+                <span class="font-semibold leading-tight">Bulk Settlement</span>
+                <span class="text-[10px] text-dim">Batch clearance & lockbox</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <a href="#live-portal" id="nav-live-portal" class="nav-link px-3 py-1.5 rounded-lg text-brand-600 bg-brand-50 hover:bg-brand-100 transition-colors">Live Prototype</a>
+        <a href="#design-system" id="nav-design-system" class="nav-link px-3 py-1.5 rounded-lg hover:text-ink hover:bg-subtle transition-colors">Design System</a>
       </nav>
 
-      <!-- Right: Action Buttons -->
-      <div class="flex items-center gap-2.5">
+      <!-- Right: Action Buttons & Mobile Hamburger -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
         <button onclick="openQuickJump()" aria-label="Search sections or features (Shortcut: Command K)"
           class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-hairline bg-subtle hover:bg-white text-xs font-medium text-dim hover:text-ink transition-all cursor-pointer">
           <i class="fa-solid fa-magnifying-glass text-[11px]" aria-hidden="true"></i>
@@ -192,10 +241,82 @@
         </button>
 
         <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer"
-          class="px-4 py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+          class="px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer"
           aria-label="Launch Live App in new window">
           <span>Launch Live App</span>
           <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-toggle" onclick="toggleMobileNav()" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-nav-menu"
+          class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg border border-hairline bg-subtle hover:bg-white text-ink transition-colors cursor-pointer">
+          <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-nav-menu" class="hidden lg:hidden border-t border-hairline bg-white/98 backdrop-blur-md px-4 py-4 space-y-3 transition-all max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-2 border-b border-hairline">
+        <span class="text-[11px] font-mono uppercase tracking-wider text-dim">Navigation</span>
+        <button onclick="openQuickJump(); toggleMobileNav();" class="text-xs text-brand-600 font-semibold flex items-center gap-1.5">
+          <i class="fa-solid fa-magnifying-glass text-[10px]"></i> Quick Search (⌘K)
+        </button>
+      </div>
+
+      <nav class="space-y-1" aria-label="Mobile Navigation">
+        <a href="#hero-showcase" onclick="toggleMobileNav()" class="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-ink hover:bg-subtle transition-colors">
+          <span>Overview</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-dim"></i>
+        </a>
+        <a href="#highway-reality" onclick="toggleMobileNav()" class="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-ink hover:bg-subtle transition-colors">
+          <span>The Problem & Crisis</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-dim"></i>
+        </a>
+
+        <div class="pt-2 pb-1">
+          <span class="px-3 text-[10px] font-mono uppercase tracking-wider text-dim">5 Core Workflows</span>
+        </div>
+        <a href="#situation-triage" onclick="toggleMobileNav()" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-ink hover:bg-subtle transition-colors">
+          <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center">01</span>
+          <span>Fleet Bulk Triage</span>
+        </a>
+        <a href="#situation-attribution" onclick="toggleMobileNav()" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-ink hover:bg-subtle transition-colors">
+          <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center">02</span>
+          <span>Driver Attribution & Audit</span>
+        </a>
+        <a href="#situation-custody" onclick="toggleMobileNav()" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-ink hover:bg-subtle transition-colors">
+          <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center">03</span>
+          <span>Custody & Gate Pass</span>
+        </a>
+        <a href="#situation-disputes" onclick="toggleMobileNav()" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-ink hover:bg-subtle transition-colors">
+          <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center">04</span>
+          <span>Legal Dispute Desk</span>
+        </a>
+        <a href="#situation-settlement" onclick="toggleMobileNav()" class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-ink hover:bg-subtle transition-colors">
+          <span class="w-5 h-5 rounded bg-brand-50 text-brand-600 font-mono text-[10px] font-bold flex items-center justify-center">05</span>
+          <span>Bulk Settlement</span>
+        </a>
+
+        <div class="pt-2 pb-1 border-t border-hairline mt-2"></div>
+        <a href="#live-portal" onclick="toggleMobileNav()" class="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-bold text-brand-600 bg-brand-50 hover:bg-brand-100 transition-colors">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-play text-xs"></i>
+            <span>Interactive Live Prototype</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+        <a href="#design-system" onclick="toggleMobileNav()" class="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-ink hover:bg-subtle transition-colors">
+          <span>Design System & Tokens</span>
+          <i class="fa-solid fa-chevron-right text-[10px] text-dim"></i>
+        </a>
+      </nav>
+
+      <div class="pt-3 border-t border-hairline flex flex-col gap-2">
+        <a href="https://dt019107.github.io/E-challan-Management-Portal/" target="_blank" rel="noopener noreferrer"
+          class="w-full py-2.5 rounded-xl bg-brand-600 text-white text-xs font-bold text-center flex items-center justify-center gap-2 shadow-xs">
+          <span>Launch Live App in New Tab</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
         </a>
       </div>
     </div>
@@ -1262,7 +1383,7 @@
       const bar = document.getElementById('reading-progress');
       if (bar) bar.style.width = scrolled + '%';
 
-      // Scroll Spy for Nav Links
+      // Scroll Spy for Nav Links & Workflow Sublinks
       const sections = [
         'hero-showcase',
         'highway-reality',
@@ -1279,15 +1400,29 @@
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 140 && rect.bottom >= 140) {
+          if (rect.top <= 160 && rect.bottom >= 160) {
             currentSection = id;
             break;
           }
         }
       }
       if (currentSection) {
+        const workflowSections = [
+          'situation-triage',
+          'situation-attribution',
+          'situation-custody',
+          'situation-disputes',
+          'situation-settlement'
+        ];
+        const isWorkflow = workflowSections.includes(currentSection);
+
+        // Update Desktop & Mobile Top-Level Nav Links
         document.querySelectorAll('.nav-link').forEach(link => {
-          if (link.getAttribute('href') === '#' + currentSection) {
+          const href = link.getAttribute('href');
+          if (href === '#' + currentSection) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'true');
+          } else if (link.id === 'nav-workflows-btn' && isWorkflow) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'true');
           } else {
@@ -1295,6 +1430,62 @@
             link.removeAttribute('aria-current');
           }
         });
+
+        // Update Dropdown Sublinks
+        document.querySelectorAll('.workflow-sublink').forEach(sublink => {
+          const href = sublink.getAttribute('href');
+          if (href === '#' + currentSection) {
+            sublink.classList.add('bg-brand-50', 'text-brand-600');
+            sublink.classList.remove('text-ink');
+            sublink.setAttribute('aria-current', 'true');
+          } else {
+            sublink.classList.remove('bg-brand-50', 'text-brand-600');
+            sublink.classList.add('text-ink');
+            sublink.removeAttribute('aria-current');
+          }
+        });
+      }
+    });
+
+    // Mobile Navigation Drawer Controller
+    function toggleMobileNav() {
+      const menu = document.getElementById('mobile-nav-menu');
+      const btn = document.getElementById('mobile-menu-toggle');
+      const icon = document.getElementById('mobile-menu-icon');
+      if (!menu || !btn) return;
+
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        if (icon) {
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+        }
+      } else {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        if (icon) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+        }
+      }
+    }
+
+    // Auto-close mobile drawer on desktop resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        const menu = document.getElementById('mobile-nav-menu');
+        const btn = document.getElementById('mobile-menu-toggle');
+        const icon = document.getElementById('mobile-menu-icon');
+        if (menu && !menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          btn?.setAttribute('aria-expanded', 'false');
+          if (icon) {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+          }
+        }
       }
     });
 
@@ -1443,10 +1634,14 @@
         openQuickJump();
       }
 
-      // Escape closes open dialogs
+      // Escape closes open dialogs and menus
       if (e.key === 'Escape') {
         closeQuickJump();
         closeModal('modal-retina-viewer');
+        const mobileMenu = document.getElementById('mobile-nav-menu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          toggleMobileNav();
+        }
       }
 
       // Tab trap inside active modals
